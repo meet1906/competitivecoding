@@ -1,0 +1,5 @@
+Inbuilt function for calculating LCM in C++
+
+#include<boost/math/common_factor.hpp>
+    cout << "LCM(10,20) = " << boost::math::lcm(10,20)  
+
