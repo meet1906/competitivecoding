@@ -15,6 +15,7 @@ void main()
 	int k;
 	scanf("%d",&k);
 // Trying shift for k time
+	//Left shift once and then repeat it for k times, pen and paper use karo, sab aasan ho jaega :D
 	int temp,j;
 	temp = a[0];
 	for(j=0;j<k;j++)
