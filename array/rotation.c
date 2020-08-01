@@ -30,7 +30,7 @@ void main()
 		a[i]=temp[j++];
 
 	}
-	printf("\n Rotated Array: \n");
+	printf("\n Anti-CLockwise Rotated Array: \n");
 	for(i=0;i<size;i++)
 	{
 		printf("%d\n",a[i]);
