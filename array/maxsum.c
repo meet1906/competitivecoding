@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+//this is O(N*K) times
 void main()
 {
 	int size;
