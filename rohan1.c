@@ -15,3 +15,17 @@ void main()
 	}
 
 }
+
+char solve(long long N)
+{
+	if(N==1 || N%2==0)
+	{
+		return 'A';
+	}
+	else
+	{
+		return 'B';
+	
+	}
+
+}
