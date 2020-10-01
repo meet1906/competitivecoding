@@ -1,0 +1,92 @@
+ X->Y :  X determines Y,  Y is functionally dependent on X
+
+            ###############   NORMALIZATION  #####################
+    
+Database Normalization is a technique of organizing the data in the database.
+Normalization is a systematic approach of decomposing tables to eliminate data redundancy(repetition) and undesirable char. like Insertion, Update and Deletion Anomalies.
+It is a multi-step process that puts data into tabular form, removing duplicated data from the relation tables.
+
+### 1. First Normal Form (1NF)
+
+For a table to be in the First Normal Form, it should follow the following 4 rules:
+
+    It should only have single(atomic) valued attributes/columns i.e. No multi-valued or composite attribute allowed .
+    Values stored in a column should be of the same domain
+    All the columns in a table should have unique names.
+    And the order in which data is stored, does not matter.
+
+### 2. Second Normal Form (2NF)
+
+    For a table to be in the Second Normal Form,
+
+        It should be in the First Normal form.
+        And, it should not have Partial Dependency.
+    
+        ###  Full Functional Dependency : In a relation , there exists Full Functional Dependency between any two attributes X and Y,  
+             when X is functionally dependent on Y and is not functionally dependent on any proper subset of Y.  
+
+        ###  Partial Functional Dependency : In a relation, there exists Partial Dependency,
+             when a non prime attribute (the attributes which are not a part of any candidate key ) is functionally dependent on a proper subset of Candidate Key. 
+
+        For example : Let there be a relation R ( Course, Sid , Sname , fid, schedule ,  room , marks )
+        Full Functional Dependencies : {Course , Sid) -> Sname , {Course , Sid} -> Marks, etc.
+        Partial Functional Dependencies : Course -> Schedule ,  Course -> Room
+
+### 3.  Third Normal Form (3NF)
+
+    A table is said to be in the Third Normal Form when,
+
+        It is in the Second Normal form.
+        And, it doesn't have Transitive Dependency.
+
+
+        ###  A functional dependency is said to be transitive if it is indirectly formed by two functional dependencies. For e.g.
+        X -> Z is a transitive dependency if the following three functional dependencies hold true:
+        X->Y
+        Y does not ->X 
+        Y->Z
+        Note: A transitive dependency can only occur in a relation of three of more attributes. This dependency helps us normalizing the database in 3NF (3rd Normal Form). 
+
+        OR A->B, where A is non-prime and B is non-prime , then it is transitive
+
+
+### 4.  Boyce Codd normal form (BCNF) OR 3.5NF
+
+It is an advance version of 3NF that’s why it is also referred as 3.5NF.
+BCNF is stricter than 3NF. A table complies with BCNF if it is in 3NF and for every functional dependency X->Y, X should be the super key of the table.
+
+i.e.  Non-Prime -> Prime attribute, BCNF doesn't allow this
+
+
+### 5.  Fourth normal form (4NF):
+
+Fourth normal form (4NF) is a level of database normalization where there are no non-trivial multivalued dependencies other than a candidate key.
+It builds on the first three normal forms (1NF, 2NF and 3NF) and the Boyce-Codd Normal Form (BCNF).
+It states that, in addition to a database meeting the requirements of BCNF, it must not contain more than one multivalued dependency.
+
+Properties – A relation R is in 4NF if and only if the following conditions are satisfied:
+
+  a. It should be in the Boyce-Codd Normal Form (BCNF).
+   b. The table should not have any Multi-valued Dependency.
+
+    A table with a multivalued dependency violates the normalization standard of Fourth Normal Form (4NK) because it creates unnecessary redundancies and can contribute to inconsistent data.
+    To bring this up to 4NF, it is necessary to break this information into two tables.
+
+### 6.  Fifth normal form (5NF)
+
+A relation is in 5NF if it is in 4NF and not contains any join dependency and joining should be lossless.
+5NF is satisfied when all the tables are broken into as many tables as possible in order to avoid redundancy.
+5NF is also known as Project-join normal form (PJNF).
+
+
+
+                ###################### ANAMOLIES #######################
+
+* Update anomalies − If data items are scattered and are not linked to each other properly, then it could lead to strange situations.
+
+Eg. when we try to update one data item having its copies scattered over several places, a few instances get updated properly while a few others are left with old values.
+Such instances leave the database in an inconsistent state.
+
+* Deletion anomalies − We tried to delete a record, but parts of it was left undeleted because of unawareness, the data is also saved somewhere else.
+
+* Insert anomalies − We tried to insert data in a record that does not exist at all.
