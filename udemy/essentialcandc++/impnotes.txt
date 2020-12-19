@@ -1,2 +1,14 @@
 -> LATEST COMPILER TAKES INT AS 4 BYTES
 -> IF YOU DON'T INITIALISE VALUE, THEN DEFAULT IT TAKES 0 OR GARBAGE VALUE.
+-> Variable sized array may not be initialised (int a[n]={12,11,2} - MAY NOT BE INITIALISED AND SHALL GIVE ARRAY)
+-> for(int x:A) = for(int x=0;a[x]!='\0';x++)
+-> Array is collection of similar data types
+
+-> Structure is a collection of dissimilar data types
+-> Structure is used for defining primitive data types
+->struct abc{
+	
+}r1,r2;
+this is similar to struct abc r1; and struct abc r2;
+
+or struct abc r1,r2;
