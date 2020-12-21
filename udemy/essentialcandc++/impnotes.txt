@@ -22,3 +22,19 @@ If you want to store the data in heap section, then we use malloc().
 C++ lang:
 int *p;
 p=new int[5];
+
+Pointer to Array:
+int a[5]={1,2,3,4,5};
+int *p;
+p=a (NO & is used when using pointer to array)
+agar individual element use karr rahe ho then & use karo - p=&a[0]
+printing elements of pointers via array - 1) cout<<p[i] (a ki jagah pointer[i] use karo if you declare int *p; p=a;)
+2) cout<<*(p+i);
+c++ int *A= new int(5);
+c - int *A= (int*)malloc(5*sizeof(int))
+delete - C++
+free - C
+Once the program ends, it deallocates or frees memory automatically
+
+Though if you created pointers of different data types, they take same amount of memory (latest compiler - 8 bytes)
+SO SIZEOF POINTER IS INDEPENDENT OF ITS DATA TYPE
