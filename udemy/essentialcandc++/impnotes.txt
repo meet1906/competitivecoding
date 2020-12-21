@@ -12,3 +12,13 @@
 this is similar to struct abc r1; and struct abc r2;
 
 or struct abc r1,r2;
+
+
+POINTER : VARIABLE USED / declared -  it will be inside stack portion
+
+Storing in heap :
+C lang:
+If you want to store the data in heap section, then we use malloc().
+C++ lang:
+int *p;
+p=new int[5];
