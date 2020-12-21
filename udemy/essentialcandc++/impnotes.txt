@@ -67,4 +67,18 @@ for each loop - can't be used for pointers - for(int a:A) will throw an error sa
 To pass array as call by value, use structure. Have that structure have an array element.
 
 
+IMPORTANT !!!
+either #include<iostream> or <iostream.h> 
+If you use <iostream> then use namespace std for cin,cout.
+
+data members - facilatators
+getting a private member value outside class - get(int leng) wala func - getter func
+updating private member - set func - mutator func - setter func.
+
+
+if you want to define func outside the class then classname::funcname() {}
+
+
+
+
 
