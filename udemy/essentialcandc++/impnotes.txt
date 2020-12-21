@@ -44,3 +44,7 @@ Alias to variable
 int &p; // will throw error as reference should always be initialized
 int &p=a;
 now a and p both are same.
+
+
+Pointer to structure
+In c++, if we don't mention while declaring the object of the structure and just use struct name, then also its valid.
