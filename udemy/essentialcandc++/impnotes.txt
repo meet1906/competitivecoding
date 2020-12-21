@@ -78,7 +78,8 @@ updating private member - set func - mutator func - setter func.
 
 if you want to define func outside the class then classname::funcname() {}
 
-
+Template classes - for classes for all data types
+tenplate <class T>
 
 
 
