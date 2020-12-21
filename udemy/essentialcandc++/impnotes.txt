@@ -61,4 +61,9 @@ Call by Address - CHANGES IN FORMAL -> CHANGES IN ACTUAL (* and &)
 Call By Reference - References - (& in func definition)
 Code gets copied during func call
 
+Arrays can be passed only via address. It can't be passed by value.
+for each loop - can't be used for pointers - for(int a:A) will throw an error sayin begin and end not declared for pointer array a[].
+
+
+
 
