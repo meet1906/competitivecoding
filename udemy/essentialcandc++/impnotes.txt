@@ -48,3 +48,17 @@ now a and p both are same.
 
 Pointer to structure
 In c++, if we don't mention while declaring the object of the structure and just use struct name, then also its valid.
+
+Functions
+Everything inside one single function -  lets say main() -->(monolytic programing)
+Modular/Procedural Programming - breaking it to smaller tasks or functions.
+Parameters passed during function call are called actual parameters
+Parameters passed during function definition/declaration are called formal parameters
+
+
+Call by Value - ANY CHANGES DONE IN FORMAL WILL NOT AFFECT TO ACTUAL PARAMETERS
+Call by Address - CHANGES IN FORMAL -> CHANGES IN ACTUAL (* and &)
+Call By Reference - References - (& in func definition)
+Code gets copied during func call
+
+
