@@ -1,0 +1,3 @@
+Data Structure - arrangement of collection of data items so that operations can be done efficiently
+Inside main memory - data structure
+
