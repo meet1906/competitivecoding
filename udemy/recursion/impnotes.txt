@@ -16,3 +16,7 @@ difference -> loops will only have ascending phase but recursion will have both 
 How recursion uses stack?
 Total calls -> n+1
 Total memory consumption - O(N)
+ 
+Time complexity -> time depends on value passed so --> O(N)
+Otherwise its calculated using recurrence relations.
+T(n)=T(n-1)+1.
