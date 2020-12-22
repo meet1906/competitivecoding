@@ -1,0 +1,8 @@
+1<logn<n<nlogn<n2<n3<.....<2^n<3^n<...<n^n
+
+When you can't get exact value of time complexity or notations then we use the following three :
+
+a) Omega - Lower Bound - lower value
+b) Big Oh - Upper Bound - Higher value
+c) Theta - TIght Bound - Exact/Avg value
+
