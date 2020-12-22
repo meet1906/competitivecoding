@@ -20,3 +20,10 @@ Total memory consumption - O(N)
 Time complexity -> time depends on value passed so --> O(N)
 Otherwise its calculated using recurrence relations.
 T(n)=T(n-1)+1.
+
+Types of recursion :
+Tail -->  func last
+Head ---> func first
+Indirect -->  (1-2-3-1)
+Tree -> Make and Trace to find the appropriate o/p.
+Nested 
