@@ -1,0 +1,18 @@
+RECURSION
+
+Func which calls itself
+Bulb and rubberband example
+
+void func()
+{
+	statement 1 ---> this will be execeuted at calling time. (before - calling time)
+	func()
+	statement 2 ----> this will be execeuted at return time. (after - return time)
+}
+
+recursion vs loops
+difference -> loops will only have ascending phase but recursion will have both ascending and descending phase.
+
+How recursion uses stack?
+Total calls -> n+1
+Total memory consumption - O(N)
