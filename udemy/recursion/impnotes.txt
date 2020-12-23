@@ -30,3 +30,8 @@ Nested -> fact(fact(n-1))
 
 Excersive recursion - when same recursive fun calls multiple times for same values 
 Memoiasation - storing results of func call in recursive func 
+
+
+c =  fib(n-2)+fib(n-1)
+
+ncr = n-1Cr-1 + n-1Cr
