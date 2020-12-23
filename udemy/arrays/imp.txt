@@ -1,0 +1,8 @@
+HOW TO INCREASE SIZE OF ARRAY ?
+
+int *p = new int(5);
+int *q= new int(10);
+free [](p)
+
+now p=q;
+q=null;
