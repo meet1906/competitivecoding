@@ -1,0 +1,80 @@
+                         ######### Class #########
+
+A class is a user defined blueprint or prototype from which objects are created.It represents the set of properties or methods that are common to all objects of one type.
+
+In general, class declarations can include these components, in order:
+
+      A. Modifiers : A class can be public or has default access (Refer this for details).
+      B. Class name: The name should begin with a initial letter (capitalized by convention).
+      C. Superclass(if any): The name of the class’s parent (superclass), if any, preceded by the keyword extends. A class can only extend (subclass) one parent.
+      D. Interfaces(if any): A comma-separated list of interfaces implemented by the class, if any, preceded by the keyword implements. A class can implement more than one interface.
+      E. Body: The class body surrounded by braces, { }.
+
+For example, if you had a class called “Expensive Cars” it could have objects like Mercedes, BMW, Toyota, etc.
+Its properties(data) can be price or speed of these cars. While the methods may be performed with these cars are driving, reverse, braking etc.
+
+                         ######### Object #########
+
+An object can be defined as an instance of a class, and there can be multiple instances of a class in a program.
+It is a basic unit of OOP and represents the real life entities.
+An Object contains both the data and the function, which operates on the data. For example - chair, bike, marker, pen, table, car, etc.
+
+An object consists of :
+
+      A. State : It is represented by attributes of an object. It also reflects the properties of an object.
+      B. Behavior : It is represented by methods of an object. It also reflects the response of an object with other objects.
+      C. Identity : It gives a unique name to an object and enables one object to interact with other objects.
+Declaring Objects (Also called instantiating a class)
+
+When an object of a class is created, the class is said to be instantiated.
+All the instances share the attributes and the behavior of the class. But the values of those attributes, i.e. the state are unique for each object. 
+A single class may have any number of instances.
+Declaring Objects (Also called instantiating a class)
+
+When an object of a class is created, the class is said to be instantiated. All the instances share the attributes and the behavior of the class.
+But the values of those attributes, i.e. the state are unique for each object. A single class may have any number of instances.
+
+ $$$ Creating multiple objects by one type only (A good practice) $$$ 
+
+In real-time, we need different objects of a class in different methods.
+Creating a number of references for storing them is not a good practice and therefore we declare a static reference variable and use it whenever required.
+In this case,wastage of memory is less. The objects that are not referenced anymore will be destroyed by Garbage Collector of java. Example:
+    
+            Test test = new Test(); //Creating an object of Class Test
+            /*... using test perform the tasks */
+            test = new Test();// if we need another object and test is not required anymore, we can use it again by initializing it again.(it would be as a new obj)
+
+In inheritance system, we use parent class reference variable to store a sub-class object.
+In this case, we can switch into different subclass objects using same referenced variable. Example:
+
+    class Animal {}
+
+        class Dog extends Animal {}
+        class Cat extends Animal {}
+
+    public class Test
+    {   
+      // using Dog object
+      Animal obj = new Dog();
+
+      // using Cat object
+      obj = new Cat();
+    }
+        $$$ Anonymous objects $$$
+
+ Anonymous objects are the objects that are instantiated but are not stored in a reference variable.
+
+They are used for immediate method calling.
+They will be destroyed after method calling.
+They are widely used in different libraries. For example, in AWT libraries, they are used to perform some action on capturing an event(eg a key press).
+
+In example below, when a key is button(referred by the btn) is pressed, we are simply creating anonymous object of EventHandler class for just calling handle method.
+
+        btn.setOnAction(new EventHandler()
+        {
+            public void handle(ActionEvent event)
+            {
+                System.out.println("Hello World!");
+            }
+        });
+

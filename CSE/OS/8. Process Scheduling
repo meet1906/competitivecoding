@@ -1,0 +1,87 @@
+                                      ################## Process Scheduling Queues ###############################
+
+* The objective of multiprogramming is to have some process running at all times to maximize CPU utilization.
+* The objective of time sharing system is to switch the CPU among processes so frequently .
+
+* Job queue – set of all processes in the system
+* Ready queue – set of all processes residing in main memory, ready and waiting to execute.
+                This queue is generally stored as a linked list.
+                A ready-queue header contains pointers to the first and final PCBs in the list.
+                Each PCB includes a pointer field that points to the next PCB in the ready queue.
+* Device queues – set of processes waiting for an I/O device.
+                  Each device has its own device queue.
+                    
+                                    
+                                        ################### SCHEDULERS ################################
+
+The OS should select a particular process from the queue.
+The selection process is carried out by a Scheduler.
+
+1. Long-term scheduler  (or job scheduler) – selects which processes should be brought into the ready queue.
+                                             Long-term scheduler is invoked much less frequently (seconds, minutes)
+2. Short-term scheduler (or CPU scheduler) – selects which process should be executed next and allocates CPU
+                                             Short-term scheduler is invoked very frequently (milliseconds) 
+
+                                        ############## CONTEXT SWITCH ######################
+
+When CPU switches to another process, the system must save the state of the old process and load the saved state for the new process via a context switch
+Context of a process represented in the PCB .
+
+                                        ################## PROCESS CREATION ####################
+
+A process may create several new processes.
+Creating process is called a parent process and the new processes are called the children of that process
+Parent process create children processes, which, in turn create other processes, forming a tree of processes
+
+Generally, process identified and managed via a process identifier (pid)
+
+
+## When a process creates a new process  there are two possibilities in terms of Execution
+
+    * Parent and children execute concurrently
+    * Parent waits until children terminate
+
+## In terms of address space of new process
+
+    * Child process is a duplicate of parent process(ie it has same program and data as parent) .
+    * Child process has a new process loaded on it.
+
+
+                                        ############ PROCESS CREATION IN UNIX ################
+####### fork() : 
+    fork system call creates new process.
+    The new process consists of a copy of the address space of the original process.
+
+    It takes no parameters and returns an integer value. Below are different values returned by fork().
+        * Negative Number: It returns -ve number when child process creation is failed
+        * Zero:It returns 0 for the newly created child process
+        * Positive Value:The +ve value is returned to the parent process,this is PID of child process.
+    exec system call used after a fork to replace the process’ memory space with a new program.
+    The exec () system call loads a binary file into memory and starts its execution.
+
+                                       ################### PROCESS TERMINATION ###################
+
+Process executes last statement and asks the operating system to delete it (exit)
+It returns a status value to its parent via wait().
+All the resources of the process are deallocated by operating system
+
+Parent may terminate the child when
+* Child has exceeded allocated resources
+* Task assigned to child is no longer required
+* If parent is exiting
+    Some operating system do not allow child to continue if its parent terminates
+
+All children terminated - cascading termination
+
+
+
+
+
+
+
+
+
+
+
+
+

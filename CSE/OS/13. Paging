@@ -1,0 +1,7 @@
+In Operating Systems, Paging is a storage mechanism used to retrieve processes from the secondary storage into the main memory in the form of pages.
+
+The main idea behind the paging is to divide each process in the form of pages. The main memory will also be divided in the form of frames.
+
+One page of the process is to be stored in one of the frames of the memory. The pages can be stored at the different locations of the memory but the priority is always to find the contiguous frames or holes.
+
+

@@ -1,0 +1,35 @@
+                ############### Types of Keys in Relational Model (Candidate, Super, Primary, Alternate and Foreign) ##################
+
+1. Candidate Key: The "MINIMAL" set of attribute which can uniquely identify a tuple is known as candidate key.
+
+                  * The value of Candidate Key is unique and non-null for every tuple.
+                  * There can be more than one candidate key in a relation.  
+                  * The candidate key can be simple (having only one attribute) or composite as well.  
+                  * It is minimal subset of Candidate Key.
+
+                  Note – In Sql unique constraint that has a nullable column, allows the value ‘null‘ in that column only once.
+
+                ######## All super keys can’t be candidate keys But all candidate keys are super keys.  #######
+
+2. Super Key :  The set of attributes which can uniquely identify a tuple is known as Super Key.
+                * Super Key is a superset of Candidate key.
+                * Adding zero or more attributes to candidate key generates super key.
+                * A candidate key is a super key but vice versa is not true.
+
+3. Primary Key: The PRIMARY KEY constraint uniquely identifies each record in a table.
+                * There can be more than one candidate key in relation out of which one can be chosen as the primary key.
+                * Primary keys must contain UNIQUE values, and cannot contain NULL values.
+                * A table can have only ONE primary key; and in the table, this primary key can consist of single or multiple columns (fields).
+
+
+4. Alternate Key: The candidate key other than the primary key is called an alternate key. 
+
+5. Composite Key: Key that consists of two or more attributes that uniquely identify any record in a table is called Composite key.
+                  But the attributes which together form the Composite key are not a key independentely or individually.
+
+6. Foreign Key :  A foreign key is a key used to link two tables together. This is sometimes also called as a referencing key.
+                  It is a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table.
+
+                 * The table containing the foreign key is called the child table, and the table containing the candidate key is called the referenced or parent table.
+
+

@@ -1,0 +1,52 @@
+                                ################# REGULAR EXPRESSION IN MYSQL ########################
+
+You have seen MySQL pattern matching with LIKE ...%. MySQL supports another type of pattern matching operation based on the regular expressions and the REGEXP operator.
+It is very simple  to understand because this matching is same like those scripting the regular expressions (PHP,Perl).
+
+Following is the table of pattern, which can be used along with the REGEXP operator.
+
+#### Pattern	What the pattern matches
+
+^	            Beginning of string
+$	            End of string
+.       	    Any single character
+[...]	        Any character listed between the square brackets
+[^...]	        Any character not listed between the square brackets
+p1|p2|p3	    Alternation; matches any of the patterns p1, p2, or p3
+*	            Zero or more instances of preceding element
++	            One or more instances of preceding element
+{n}	n           instances of preceding element
+{m,n}	        m through n instances of preceding element
+
+
+
+### Examples
+
+Now based on above table, you can device various type of SQL queries to meet your requirements. Here, I am listing a few for your understanding.
+
+Consider we have a table called person_tbl and it is having a field called name −
+
+# Query to find all the names starting with 'st' −
+
+    mysql> SELECT name FROM person_tbl WHERE name REGEXP '^st';
+
+# Query to find all the names ending with 'ok' −
+
+    mysql> SELECT name FROM person_tbl WHERE name REGEXP 'ok$';
+
+# Query to find all the names, which contain 'mar' −
+
+    mysql> SELECT name FROM person_tbl WHERE name REGEXP 'mar';
+
+# Query to find all the names starting with a vowel and ending with 'ok' −
+
+    mysql> SELECT FirstName FROM intque.person_tbl WHERE FirstName REGEXP '^[aeiou].*ok$';
+
+
+#  Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+
+mysql> select distinct CITY from STATION
+       where CITY regexp '[a,e,i,o,u]$';
+
+
+  

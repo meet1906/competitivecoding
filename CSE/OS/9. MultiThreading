@@ -1,0 +1,100 @@
+                        ################### MULTITHREADING ####################
+
+* MULTITHREADING :   Multithreading is a conceptual programming paradigm where a process is divided into a number of sub-processes called as threads .
+* PROCESS :  A Program in execution .
+* THREAD :  A unit of execution within a process. A process may have multiple threads .
+
+
+                        ############# OVERVIEW OF THREAD ########################
+
+A thread is a basic unit of CPU utilization
+    * It comprises a thread ID, a program counter, a register set, and a stack.
+    * It shares with other threads belonging to the same process its code section, data section, and other operating-system resources.
+
+                        ############## ADVANTAGES OF MULTITHREADING ###############
+
+Process creation is heavy-weight while thread creation is light-weight
+Can simplify code, increase efficiency
+Kernels are generally multithreaded
+
+                        ############ MULTITHREAD CLIENT SERVER ###################
+
+* Responsiveness – may allow continued execution if part of process is blocked or is performing lengthy operations, especially important for user interfaces
+                   Eg: multithreaded web browser  allows user interaction in one thread while an image is being loaded in another thread.
+* Resource Sharing – threads share resources of process. The benefit of sharing code and data is that it allows an application to have several different threads of activity within the same address space.
+* Economy – cheaper than process creation, thread switching lower overhead than context switching
+* Scalability – In multi processor architecture, threads may be running in parallel on different processors.
+
+
+                        #################### IMPLEMENTING THREADS ########################
+
+A thread library provides programmers with an API for creating and managing threads. Support for threads must be provided either at the user level or by the kernel.
+
+    1. Kernel level threads are supported and managed directly by the operating system.
+    2. User level threads are supported above the kernel in user space and are managed without kernel support.
+
+######## Common ways of establishing relationship between user threads and kernel threads are :
+
+1. Many-to-one
+
+In the many-to-one model all user level threads execute on the same kernel thread.
+The process can only run one user-level thread at a time because there is only one kernel-level thread associated with the process.
+
+2. One-to-one
+
+In the one-to-one model every user-level thread execute on a separate kernel-level thread.
+In this model the kernel must provide a system call for creating a new kernel thread.
+
+3. Many-to-many
+
+In the many-to-many model the process is allocated m number of kernel-level threads to execute n number of user-level thread.
+
+4. Two-level
+
+The two-level model is similar to the many-to-many model but also allows for certain user-level threads to be bound to a single kernel-level thread.
+
+
+                         ############## MULTITHREADING IN JAVA ####################
+
+
+* Threads can be created by using two mechanisms :
+    1. Extending the Thread class (Overriding run() method in in Thread class, as start() invokes run(), it will call this overrided run()
+    2. Implementing the Runnable Interface
+
+##### Thread creation by extending the Thread class
+
+We create a class that extends the java.lang.Thread class. This class overrides the run() method available in the Thread class. A thread begins its life inside run() method.
+We create an object of our new class and call start() method to start the execution of a thread. Start() invokes the run() method on the Thread object.
+
+##### Thread creation by implementing the Runnable Interface
+
+We create a new class which implements java.lang.Runnable interface and override run() method. Then we instantiate a Thread object and call start() method on this object.
+
+
+
+
+                        ################ THREAD POOL #########################
+
+There should be a bound on no of concurrently active threads in the system.
+Unlimited threads exhaust system resources such as CPU time or memory. A solution is to use a thread pool
+
+Create a number of threads at process start up and place them  in a pool where they await work.
+
+When the server receives a request, it awakens a thread from this pool.
+Once the thread completes its service, it returns to the pool and await more work.
+
+If the pool contains no available thread, the server waits until one becomes free.
+
+Advantages:
+* Usually slightly faster to service a request with an existing thread than create a new thread
+* Allows the number of threads in the application(s) to be bound to the size of the pool
+
+
+                    ################ THREAD SPECIFIC DATA ##########################
+
+Allows each thread to have its own copy of data
+
+Eg: in a transaction processing system, each transaction  is serviced in a separate thread.
+Each transaction is assigned a unique id.
+
+

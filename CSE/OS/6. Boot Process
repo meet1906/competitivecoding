@@ -1,0 +1,110 @@
+                                            ############################## BOOT PROCESS IN LINUX ##############################
+
+After switching on Power Button, the CPU looks for the system’s firmware on the ROM .
+The firmware (UEFI or BIOS) is the start-up program.  
+
+The first instruction on it is to run POST( POWER ON SELF TEST).
+POST first checks the BIOS chip and then the CMOS RAM. If there is no battery failure detected by POST, then it continues to initialize the CPU.
+POST also checks the hardware devices, secondary storage devices such as hard drives, ports etc. And other hardware devices such as the mouse and keyboard. This is done to make sure they are working properly.
+
+The computer will continue to boot after the POST but only if it was successful or we would get an error message .
+        (BEEP CODES ARE USED TO DENOTE ERROR)
+
+Then, the BIOS searches for, loads, and executes the boot loader program, which can be found in the Master Boot Record (MBR).
+Once the boot loader program is detected, it's then loaded into memory and the BIOS gives control of the system to it.
+
+MBR responsible for loading and executing the GRUB boot loader.
+The MBR is located in the 1st sector of the bootable disk, which is typically /dev/hda, or /dev/sda, depending on your hardware.
+The MBR also contains information about GRUB, or LILO in very old systems.
+
+GRUB or GNU GRUB where GRUB is GRand Unified Bootloader is the typical bootloader for most of the linux systems. 
+
+Then GRUB splash screen is loaded with all kernel images installed on the system .
+In many systems you can find the GRUB configuration file at /boot/grub/grub.conf or /etc/grub.conf. 
+
+
+In this stage of the boot process, the kernel that was selected by GRUB first mounts the root file system that's specified in the grub.conf file.
+Then it executes the /sbin/init program, which is always the first program to be executed. You can confirm this with its process id (PID), which should always be 1.
+
+The kernel is often referred to as the core of any operating system, Linux included. It has complete control over everything in your system.
+The kernel then establishes a temporary root file system using Initial RAM Disk (initrd) until the real file system is mounted.
+
+At this point, your system executes runlevel programs. At one point it would look for an init file, usually found at /etc/inittab to decide the Linux run level.
+Modern Linux systems use systemmd to choose a run level instead.
+
+Runlevel Programs : 
+
+Run Level 	    Mode 	                            Action
+
+0 	            Halt 	                            Shuts down system
+1 	            Single-User Mode 	                Does not configure network interfaces, start daemons, or allow non-root logins
+2 	            Multi-User Mode                     Does not configure network interfaces or start daemons.
+3 	            Multi-User Mode with Networking 	Starts the system normally.
+4 	            Undefined                       	User-definable/Not used
+5 	            X11                         	    Multiple User mode under GUI , standard for most of the linux systems . 
+6 	            Reboot                      	    Reboots the system
+
+The start scripts for each run level will be different performing different tasks. These start scripts corresponding to each run level can be found in special files present under rc sub directories.
+At /etc/rc.d directory there will be either a set of files named rc.0, rc.1, rc.2, rc.3, rc.4, rc.5 and rc.6, or a set of directories named rc0.d, rc1.d, rc2.d, rc3.d, rc4.d, rc5.d and rc6.d.
+For example, run level 1 will have its start script either in file /etc/rc.d/rc.1 or any files in the directory /etc/rc.d/rc1.d.
+
+    Run level 0 – /etc/rc0.d/
+    Run level 1 – /etc/rc1.d/
+    Run level 2  – /etc/rc2.d/
+    Run level 3  – /etc/rc3.d/
+    Run level 4 – /etc/rc4.d/
+    Run level 5 – /etc/rc5.d/
+    Run level 6 – /etc/rc6.d/
+
+If you look in the different run level directories, you'll find programs that start with either an "S" or "K" for startup and kill, respectively.
+Startup programs are executed during system startup, and kill programs during shutdown.
+
+TERMS : 
+
+* BIOS :   It’s low-level software that resides in ROM . The BIOS loads when your computer starts up, and the BIOS is responsible for waking up your computer’s hardware components,
+           ensures they’re functioning properly, and then runs the bootloader that boots Windows or whatever other operating system you have installed.
+
+* POST :  A power-on self-test (POST) is a process performed by firmware or software routines immediately after a computer or other digital electronic device is powered on. 
+          Used to determine if the hardware is working as expected
+
+* FIRMWARE : It is a software program or set of instructions programmed on a hardware device.
+
+* MBR :  A master boot record (MBR) is a special type of boot sector at the very beginning of partitioned computer mass storage devices .
+
+* init : Init (short for initialization) is the program on Unix and Unix-like systems that spawns all other processes. It runs as a daemon and typically has PID 1.
+
+                    ########### UEFI V/S BIOS ###################
+
+UEFI (Unified Extensible Firmware Interface)
+
+UEFI provides the following functionality and advantages:
+
+    ** Languages: BIOS is written in assembler, while UEFI is written in simpler C-language.
+
+    ** Drives: UEFI supports larger HDDs and SDDs. UEFI’s theoretical size limit for bootable drives is more than nine zettabytes, while BIOS can only boot from drives 2.2 terabytes or smaller.
+
+    ** Drivers: UEFI has intricate yet discrete drivers, while BIOS uses drivers in option ROM (read-only memory). With BIOS, updating the hardware requires re-tuning the ROMs for compatibility.
+                This specification applies to separately-written, upgradeable UEFI drivers.
+
+    ** Boot time: In most cases, UEFI provides a faster booting time for the operating system.
+
+    ** Security: UEFI offers improved security features. “Secure Boot” prevents the computer from booting from unsigned or unauthorized applications.
+                 The OS must contain a recognizable key. Without Secure Boot enabled, a PC is vulnerable to malware corrupting the startup process.
+
+    ** Data processors: UEFI runs in 32-bit or 64-bit mode. BIOS runs only in 16-bit mode and may utilize only 1 MD of executable memory.
+
+    ** GUI: UEFI provides a more intuitive graphical user interface that you may navigate with a mouse and keyboard, unlike BIOS.
+
+Q. What is the difference between a bootloader and a bootstrap loader?
+
+Bootloader is a piece of code that runs before any operating system is running.
+Bootloader are used to boot other operating systems, usually each operating system has a set of bootloaders specific for it.
+
+Bootstrap loader is a program that resides in the computers EPROM, ROM, or othernon-volatile memory that automatically executed by the processor when turning on the computer.
+The bootstrap loader reads the hard drives boot sector to continue the process of loading the computers operating system
+
+
+
+                    ################### SUMMARY ####################
+(Firmware) BIOS -> MBR -> GRUB -> Kernel -> init -> runlevel programs
+

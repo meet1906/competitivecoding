@@ -1,0 +1,5 @@
+                                                    ############### DEADLOCKS ###################
+
+* Deadlocks are a set of blocked processes each holding a resource and waiting to acquire a resource held by another process.
+
+Deadlocks in Operating Systems

@@ -1,0 +1,95 @@
+                            ######################## PROCESS ############################
+
+* Process : Instance of a program in execution is called Process.
+            Batch systems work in terms of "jobs". Many modern process concepts are still expressed in terms of jobs, (e.g. job scheduling),and the two terms are often used interchangeably.    
+        
+    * Process in Memory can be divided in 4 sections : 
+        1. Text Section : Consists of Compiled program code , read from non-volatile source when program is launched .
+        2. Data section : Stores global and static variables, allocated and initialized prior to executing main. 
+        3. Stack        : Space on the stack is reserved for local variables function parameters and such temporary data the space is freed up when the variables go out of scope.
+                          Note: The exact mechanisms of stack management may be language specific. 
+        4. Heap         : The heap is used for dynamic memory allocation, and is managed via calls to new, delete, malloc, free, etc. 
+        
+        Note that the stack and the heap start at opposite ends of the process's free space and grow towards each other.
+        If they should ever meet, then either a stack overflow error will occur, or else a call to new or malloc will fail due to insufficient memory available.
+
+        When processes are swapped out of memory and later restored,additional infor must also be stored and restored. Key among them are the program counter and the value of all program registers.   
+
+      
+                            #################### STATES OF A PROCESS ###################
+
+* A Process may be in one of the 5 states at a time : 
+    1. new : The process is being created.
+    2. running : A process moves into the running state when it is chosen for execution. The CPU is working on this process's instructions.
+    3. ready :  The process is waiting to be assigned to a processor.
+    4. waiting : The process cannot run at the moment, because it is waiting for some resource to become available or for some event to occur.
+                 For example the process may be waiting for keyboard input, disk access request, inter-process messages, a timer to go off, or a child process to finish. 
+    5. terminated : The process has finished execution. 
+        
+            
+                            ################# PROCESS CONTROL BLOCK (PCB) ##################### 
+
+* A Process is represented by OS by a Process Control Block or Task Control Block.
+    It has following information :
+        1. Program state : new,running,ready,waiting or terminated.
+        2. Program Counter: Address of the next instruction to be executed. 
+        3. CPU registers : Accumulators,index reg,stack pointers, general purpose reg . Along with PC ,this state info must be saved when an interrupt occurs.
+        4. CPU Scheduling info : Process Priority, pointers to scheduling queues etc .
+        5. Memory-management info : Base and limit reg,page table,segment table etc.
+        6. Accounting info : Amount of CPU time, time limits etc.
+        7. I/O status info : List of I/O devices allocated to the process, list of open files .
+
+    
+                            ################ INTERPROCESS COMMUNICATION #############################
+
+Processes within a system may be independent or cooperating
+* Cooperating process can affect or be affected by other processes. It shares data with other processes.
+* Independent process cannot affect or be affected by the execution of another process
+
+Two models of IPC
+1. Shared memory :
+    In the shared-memory model, a region of memory that is shared by cooperating processes is established.
+    Processes can then exchange information by reading and writing data to the shared region.
+2. Message passing :
+    communication takes place by means of messages exchanged between the cooperating processes.
+    message-passing systems are implemented using system calls
+
+    If P and Q wish to communicate, they need to:
+        establish a communication link between them
+        exchange messages via send/receive
+
+    IPC facility provides two operations:
+        send(message) – message size fixed or variable 
+        receive(message)
+
+                    SHARED MEMORY V/S MESSAGE PASSING : 
+
+1. Message passing:
+* It is useful for exchanging smaller amounts of data, because no conflicts need be avoided. 
+* It is also easier to implement.
+* Because of system call it requires the more time consuming task of kernel intervention.
+
+2. Shared memory:
+* Shared memory allows maximum speed , as it can be done at memory speeds when within a computer.
+* system calls are required only to establish shared-memory regions. 
+* Once it is established, all accesses are treated as routine memory accesses, and no assistance from the kernel is required
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

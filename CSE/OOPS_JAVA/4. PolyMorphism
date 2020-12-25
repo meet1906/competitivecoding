@@ -1,0 +1,102 @@
+
+                                #########  Polymorphism ###########
+
+Polymorphism refers to the ability of a variable, object or function to take on multiple forms.
+The word polymorphism means having many forms. In simple words, we can define polymorphism as the ability of a message to be displayed in more than one form.
+
+Polymorphism is considered as one of the important features of Object Oriented Programming. Polymorphism allows us to perform a single action in different ways.
+In other words, polymorphism allows you to define one interface and have multiple implementations. The word “poly” means many and “morphs” means forms, So it means many forms.
+
+$$ In Java polymorphism is mainly divided into two types:
+
+A. Compile time Polymorphism
+B. Runtime Polymorphism
+
+######### Compile time polymorphism: 
+    It is also known as static polymorphism. This type of polymorphism is achieved by function overloading or operator overloading.
+
+Method Overloading: When there are multiple functions with same name but different parameters then these functions are said to be overloaded.
+                    Functions can be overloaded by change in number of arguments or/and change in type of arguments.
+
+Operator Overloading: Java also provide option to overload operators. For example, we can make the operator (‘+’) for string class to concatenate two strings.
+                      We know that this is the addition operator whose task is to add two operands.
+                      So a single operator ‘+’ when placed between integer operands, adds them and when placed between string operands, concatenates them.
+                      
+In java, Only “+” operator can be overloaded:
+
+To add integers
+To concatenate strings
+
+
+Runtime polymorphism: It is also known as Dynamic Method Dispatch. It is a process in which a function call to the overridden method is resolved at Runtime.
+                      This type of polymorphism is achieved by Method Overriding.
+
+Method overriding, on the other hand, occurs when a derived class has a definition for one of the member functions of the base class. That base function is said to be overridden.
+
+Example:
+
+// Java program for Method overridding 
+  
+class Parent { 
+  
+    void Print() 
+    { 
+        System.out.println("parent class"); 
+    } 
+} 
+  
+class subclass1 extends Parent { 
+  
+    void Print() 
+    { 
+        System.out.println("subclass1"); 
+    } 
+} 
+  
+class subclass2 extends Parent { 
+  
+    void Print() 
+    { 
+        System.out.println("subclass2"); 
+    } 
+} 
+  
+class TestPolymorphism3 { 
+    public static void main(String[] args) 
+    { 
+  
+        Parent a; 
+  
+        a = new subclass1(); 
+        a.Print(); 
+  
+        a = new subclass2(); 
+        a.Print(); 
+    } 
+} 
+Output:
+subclass1
+subclass2
+
+
+
+
+                            ########### Differentiate between overloading and overriding. ##################
+
+Overloading	                                                                        Overriding
+
+A. Two or more methods having the same name but different parameters or signature	Child class redefining methods present in the base class with the same parameters/ signature
+B. Resolved during compile-time                                                     Resolved during runtime
+
+
+
+
+
+
+
+
+
+
+
+
+

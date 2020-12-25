@@ -1,0 +1,53 @@
+1. Hypertext Transfer Protocol (HTTP)
+
+The HTTP is the foundation of data communication for the World Wide Web. The hypertext is structured text that uses hyperlinks between nodes containing texts.
+The HTTP is the application protocol for distributed and collaborative hypermedia information system.
+The default port of HTTP is 80 and 443 is the secured port.
+
+2. File Transfer Protocol (FTP)
+
+The FTP is the most common protocol used in the file transferring in the Internet and within private networks.
+The default port of FTP is 20/21.
+
+3. Secured Shell (SSH)
+
+SSH is the primary method used to manage the network devices securely at the command level. It usually used as the alternative of the Telnet which does not support secure connections.
+The default port of SSH is 22.
+
+4. Telnet
+
+Telnet is the primary method used to manage network devices at the command level. Unlike SSH, Telnet does not provide a secure connection, but it provides a basic unsecured connection.
+The default port of Telnet is 23.
+
+5. Simple Mail Transfer Protocol (SMTP)
+
+SMTP is used for two primary functions. It is used to transfer email from source to destination between mail servers and it is used to transfer email from end users to a mail system.
+The default port of SMTP is 25 and secured (SMTPS) is 465 (Not standard).
+
+6. Domain Name System (DNS)
+
+Domain name system is used to convert the domain name to IP address. There are root servers, TLDs and authoritative servers in the DNS hierarchy.
+The default port of DNS is 53.
+
+7. Post Office Protocol version 3 (POP 3)
+The Post Office Protocol version 3 is one of the two main protocols used to retrieve mail from the internet.
+It is very simple as it allows the client to retrieve complete content from the server mail box and deletes contents from the server.
+The default port of POP3 is 110 and secured is 995.
+
+8. Internet Message Access Protocol (IMAP)
+
+IMAP version 3 is another main protocol that used to retrieve mail from a server. IMAP does not delete the content from the mail box of the server.
+The default port of IMAP is 143 and secured is 993.
+
+9. Simple Network Management Protocol (SNMP)
+
+The Simple Network Management Protocol is used to manage networks. It has abilities to monitor, configure and control network devices.
+SNMP traps can also be configured on network devices to notify a central server when specific action are occurring.
+The default port of SNMP is 161/162.
+
+10. Hypertext Transfer Protocol over SSL/TLS (HTTPS)
+
+HTTPS is used with HTTP to provide same services, but with a secured connection which is provided by SSL or TLS.
+The default port of HTTPS is 443.
+
+

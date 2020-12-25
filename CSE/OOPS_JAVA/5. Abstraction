@@ -1,0 +1,34 @@
+                                    ############ Abstraction ############
+                                    
+Data Abstraction is the property by virtue of which only the essential details are displayed to the user.
+The trivial or the non-essentials units are not displayed to the user. Ex: A car is viewed as a car rather than its individual components.
+
+An abstraction is an act of representing essential features without including background details.
+
+
+
+In java, abstraction is achieved by interfaces and abstract classes. We can achieve 100% abstraction using interfaces.
+
+
+Abstract classes and Abstract methods :
+
+A. An abstract class is a class that is declared with abstract keyword.
+B. An abstract method is a method that is declared without an implementation.
+C. An abstract class may or may not have all abstract methods. Some of them can be concrete methods
+D. A method defined abstract must always be redefined in the subclass,thus making overriding compulsory OR either make subclass itself abstract.
+E. Any class that contains one or more abstract methods must also be declared with abstract keyword.
+F. There can be no object of an abstract class.That is, an abstract class can not be directly instantiated with the new operator.
+G. An abstract class can have parametrized constructors and default constructor is always present in an abstract class.
+
+                    ######### Encapsulation vs Data Abstraction ##############
+
+Encapsulation is data hiding(information hiding) while Abstraction is detail hiding(implementation hiding).
+While encapsulation groups together data and methods that act upon the data, data abstraction deals with exposing the interface to the user and hiding the details of implementation.
+
+                    ############ Advantages of Abstraction ##################
+
+It reduces the complexity of viewing the things.
+Avoids code duplication and increases reusability.
+Helps to increase security of an application or program as only important details are provided to the user.
+
+

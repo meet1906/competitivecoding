@@ -1,0 +1,127 @@
+                                                ################### PROCESS SYNCHRONIZATION #######################
+
+* A co-operating process is one which can affect or be affected by other processes in the system.
+* Concurrent access to shared data may result in data inconsistency 
+* Maintaining data consistency requires mechanisms to ensure the orderly execution of cooperating processes
+
+
+## EG :  CONSUMER-PRODUCER PROBLEM 
+
+Suppose that we wanted to provide a solution to the consumer-producer problem(which allows at most BUFFER-SIZE-1 items in the buffer)
+Consider an integer variable counter
+
+* Initially, counter is set to 0. 
+* Incremented by producer after producing a new item
+* Decremented by consumer after consuming an item
+
+count++ could be implemented as
+     register1 := count
+     register1 := register1 + 1
+     count     := register1
+
+count-- could be implemented as
+     register2  := count
+     register2  := register2 - 1
+     count      := register2
+
+Consider this execution interleaving with “count = 5” initially:
+	T0: producer execute  register1 := count          {register1 = 5}
+    T1: producer execute  register1 := register1 + 1  {register1 = 6} 
+    T2: consumer execute  register2 := count          {register2 = 5} 
+    T3: consumer execute  register2 := register2 - 1  {register2 = 4} 
+    T4: producer execute      count := register1      {count = 6} 
+    T5: consumer execute      count := register2      {count = 4}
+
+                    ######## RACE CONDITION ############
+
+After the execution of producer and consumer process the value of count should be 5, but in the above scenario the count is 4.
+Several processes access and manipulate the same data concurrently and the outcome of the execution depends on the particular order in which the access takes place, is called a race condition
+To avoid race condition, only one process is allowed to access the shared variable at a time, that can be achieved by process synchronization and coordination
+
+
+                            ############### Critical Section Problem ##################
+
+A Critical Section is a code segment that accesses shared variables and has to be executed as an atomic action.
+It means that in a group of cooperating processes, at a given point of time, only one process must be executing its critical section.
+If any other process also wants to execute its critical section, it must wait until the first one finishes.
+
+
+############## Solution to Critical Section Problem
+
+A solution to the critical section problem must satisfy the following three conditions:
+
+1. Mutual Exclusion
+
+Out of a group of cooperating processes, only one process can be in its critical section at a given point of time.
+
+2. Progress
+
+If no process is in its critical section, and if one or more threads want to execute their critical section then any one of these threads must be allowed to get into its critical section.
+
+3. Bounded Waiting
+
+After a process makes a request for getting into its critical section, there is a limit for how many other processes can get into their critical section, before this process's request is granted.
+So after the limit is reached, system must grant the process permission to get into its critical section.
+
+
+
+
+
+                        #################### SEMAPHORES ########################
+
+* Semaphores are integer variables that are used to solve the critical section problem by using two atomic operations, wait and signal that are used for process synchronization.
+
+    ## Wait
+The wait operation decrements the value of its argument S, if it is positive. If S is negative or zero, then no operation is performed.
+
+wait(S){
+   while (S<=0);   // DON'T FORGET THE SEMICOLON, SHERLOCK
+   S--;
+}
+
+    ## Signal
+The signal operation increments the value of its argument S.
+
+signal(S){
+   S++;
+}
+
+########## PROBLEM WITH IMPLEMENTATION OF SEMAPHORE
+
+busy waiting. While a process is in its critical section, any other process that tries to enter its critical section must loop continuously in the entry code.
+Busy waiting wastes CPU cycles that some other process might be able to use productively.
+This type of semaphore is also called a spinlock because the process "spins" while waiting for the lock.
+
+########## SEMAPHORE IMPLEMENTATION WITHOUT BUSY WAITING 
+
+Rather than engaging in busy waiting, the process can block itself.
+The block operation places a process into a waiting queue.
+
+With each semaphore there is an associated waiting queue. Each entry in a waiting queue has two data items:
+ Value (of type integer)
+ Pointer to next record in the list
+
+Two operations:
+block – place the process invoking the wait operation on the appropriate waiting queue.
+wakeup – remove one of processes in the waiting queue and place it in the ready queue.
+
+When a process must wait on a semaphore, it is added to the list of processes.
+A signal () operation removes one process from the list of waiting processes and awakens that process.
+
+
+
+########### Types of Semaphores
+
+There are two main types of semaphores i.e. counting semaphores and binary semaphores. Details about these are given as follows −
+
+1. Counting Semaphores
+
+    These are integer value semaphores and have an unrestricted value domain. These semaphores are used to coordinate the resource access, where the semaphore count is the number of available resources.
+    If the resources are added, semaphore count automatically incremented and if the resources are removed, the count is decremented.
+
+2. Binary Semaphores
+
+    The binary semaphores are like counting semaphores but their value is restricted to 0 and 1. The wait operation only works when the semaphore is 1 and the signal operation succeeds when semaphore is 0.
+    It is sometimes easier to implement binary semaphores than counting semaphores.
+
+

@@ -1,0 +1,88 @@
+                                    ################ HTTP #################
+
+** Hypertext Transfer Protocol (HTTP) is an application layer protocol used by web browsers and web servers to transfer files, such as text and graphic files.
+   It is a client-server protocol; a client (usually a web browser) requests a resource (a web page) from a web server. The web server responds with the requested web page.
+
+    HTTP requests, and responses, share similar structure and are composed of :
+
+    A start-line describing the requests to be implemented, or its status of whether successful or a failure. This start-line is always a single line.
+    An optional set of HTTP headers specifying the request, or describing the body included in the message.
+    A blank line indicating all meta-information for the request has been sent.
+    An optional body containing data associated with the request (like content of an HTML form), or the document associated with a response
+
+################## HTTP METHODS : 
+
+1.  GET - The GET method is used to retrieve information from the given server using a given URI. Requests using GET should only retrieve data and should have no other effect on the data.
+2. 	HEAD - Same as GET, but it transfers the status line and the header section only.
+3.	POST - A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+4. 	PUT - Replaces all the current representations of the target resource with the uploaded content.
+5. 	DELETE - Removes all the current representations of the target resource given by URI.
+6. 	CONNECT - Establishes a tunnel to the server identified by a given URI.
+7. 	OPTIONS - Describe the communication options for the target resource.
+8. 	TRACE - Performs a message loop back test along with the path to the target resource.
+
+################# GET VS POST ####################
+
+
+                    GET                                     POST
+BACK button/Reload  Harmless                                Data will be re-submitted (the browser should alert the user that the data are about to be re-submitted)
+Bookmarked          Can be bookmarked                       Cannot be bookmarked
+Cached              Can be cached                           Not cached
+Encoding type       application/x-www-form-urlencoded       application/x-www-form-urlencoded or multipart/form-data. Use multipart encoding for binary data
+History             Parameters remain in browser history    Parameters are not saved in browser history
+Restrictions on     Yes, when sending data,the GET method   No restrictions
+data length         adds the data to the URL and the 
+                    length of a URL is limited
+                    (max URL length is 2048 characters)
+
+Restrictions on     Only ASCII characters allowed           No restrictions. Binary data is also allowed
+data type
+
+Security            GET is less secure compared to POST because data sent is part of the URL 
+
+                    Never use GET when sending passwords    POST is a little safer than GET because the parameters are not stored in browser history or in web server logs
+                    or other sensitive information !!  
+
+Visibility          Data is visible to everyone in the URL  Data is not displayed in the URL 
+
+
+POST : It is used to submit a data , it is secure and doesn't appear in URL or browser history or web server logs.
+
+GET : It is the method used by default . It shouldn't be used for passing sensitive information as it shows the data in the URL .
+      For accessing a form page it is fine, but while submitting , it should use POST method so it is secure
+
+
+################### PUT VS POST #############################
+
+* PUT method is idempotent. So if you send retry a request multiple times, that should be equivalent to single request modification.
+  POST is NOT idempotent. So if you retry the request N times, you will end up having N resources with N different URIs created on server.
+
+* Use PUT when you want to modify a singular resource which is already a part of resources collection. PUT replaces the resource in its entirety. Use PATCH if request updates part of the resource.
+  Use POST when you want to add a child resource under resources collection.
+
+* Generally, in practice, always use PUT for UPDATE operations.	
+  Always use POST for CREATE operations.
+
+* In PUT method,  the client decides which URI resource should have. 	
+  In POST method, the server decides which URI resource should have.
+
+* PUT method answer can be cached. 	
+  You cannot cache PUT method responses. 
+
+* PUT method syntax is PUT /questions/{question-id} 	
+  POST method syntax is POST /questions 
+
+* PUT method sends a request for an enclosed entity stored in the supplied request URI. 	
+  POST method requests the server to accept the entity which is enclosed in the request
+
+############ PUT vs POST : An Example
+
+Let’s say we are designing a network application. Let’s list down few URIs and their purpose to get better understanding when to use POST and when to use PUT operations.
+
+GET 	/device-management/devices : Get all devices
+POST 	/device-management/devices : Create a new device
+
+GET 	/device-management/devices/{id} : Get the device information identified by "id"
+PUT 	/device-management/devices/{id} : Update the device information identified by "id"
+DELETE	/device-management/devices/{id} : Delete device by "id"
+

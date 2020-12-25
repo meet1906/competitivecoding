@@ -1,0 +1,24 @@
+                                        ############### Paradigm Shift from File System to DBMS ###############
+
+ File System manages data using files in hard disk. Users are allowed to create, delete, and update the files according to their requirement.
+
+ Let us consider the example of file based University Management System. Data of students is available to their respective Departments, Academics Section, Result Section, Accounts Section, Hostel Office etc.
+ Some of the data is common for all sections like USN,Name,Address and Phone no but some data is available to a particular section only like Hostel allotment number which is a part of hostel office. 
+
+ ############## Issues with this system:
+
+A. Redundancy of data: Data is said to be redundant if same data is copied at many places. If a student wants to change Phone number, he has to get it updated at various sections.
+                       Similarly, old records must be deleted from all sections representing that student.
+
+B. Inconsistency of Data: Data is said to be inconsistent if multiple copies of same data does not match with each other.
+                          If Phone no is different in Accounts Section and Academics Section, it will be inconsistent. 
+                          Inconsistency may be because of typing errors or not updating all copies of same data.
+
+C. Difficult Data Access: A user should know the exact location of file to access data, so the process is very cumbersome and tedious.
+                          If user wants to search student hostel allotment number of a student from 10000 unsorted students’ records, how difficult it can be.
+
+D. Unauthorized Access: File System may lead to unauthorized access to data. If a student gets access to file having his marks, he can change it in unauthorized way.
+
+E. No Concurrent Access: The access of same data by multiple users at same time is known as concurrency. File system does not allow concurrency as data can be accessed by only one user at a time.
+
+F. No Backup and Recovery: File system does not incorporate any backup and recovery of data if a file is lost or corrupted.

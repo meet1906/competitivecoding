@@ -1,0 +1,54 @@
+                    ############### Best Practices of Object Oriented Programming (OOP) ###################
+
+The main aim of OOP is to bind together the data and the functions that operate on them so that no other part of the code can access this data except that function. 
+
+
+########## The SOLID acronym is regarded as the best object-oriented programming philosophy. 
+
+1. Single Responsibility Principle: According to this principle, a class should have only a single responsibility or a single job or a single purpose.
+                                    We should strictly avoid using generalized classes where the entire implementation is given in the same class.
+                                    It also states that the responsibility should be entirely encapsulated by the class, module, or function.
+
+2. Open / Closed Principle :        In this principle, the software entities like classes, modules, functions, etc. should be open for extension but should be closed for modification. 
+                                    This means that we should be able to extend a class behavior, without modifying it.
+
+3. Liskov’s Substitution Principle: According to this principle, the Derived or child classes must be substitutable for their base or parent classes.
+                                    It ensures that any class that is the child of a parent class should be usable in place of its parent without any unexpected behavior.
+
+4. Interface Segregation Principle: This is the first principle that applies to an interfaces. It is similar to the single responsibility principle.
+                                    It states that we should not force any client to implement an interface that is irrelevant to them.
+                                    The main goal of this concept is to focus on avoiding fat interface and give preference to many small client-specific interfaces.
+                                    
+5. Dependency Inversion Principle: According to this principle, high-level modules/classes should not depend on low-level modules/classes but rather, they should depend upon abstractions.
+                                   We also need to ensure that the abstraction should not depend upon details but the details should depend upon abstractions.
+
+############### IN DETAIL :  READ GFG ARTICLE ABOUT SOLID ACRONYM 
+
+
+
+########## Apart from the above principles, some other important practices that need to be practiced in object-oriented programming are:
+
+1. Meaningful Names: The first practice that needs to be followed in the OOP’s concept is to use meaningful names. And also, all the methods must follow the camel case naming convention.
+
+2. Fewer Arguments: We always need to write methods in such a way that the number of arguments is as minimal as possible.
+                    We can always use the values from other objects in the same class instead of asking the user the same i/p multiple times. And methods with too many arguments are difficult to read.
+
+3. Avoid global and non-deterministic behavior : Whenever we use the OOP concept, we always need to ensure that the global behavior of the variables and objects are minimized. 
+                                                 We can use the concept of encapsulation on the data members to solve this issue.
+
+4. Avoid static methods: Adding on to the above reason, the static methods must be avoided as much as possible because they act almost in a similar way as a global variable.
+                         Another imp reason to avoid is that they create a secret dependency with the class where it is created and the dependency is not observed and revealed 
+                         until the entire structure of the class is changed. This makes the maintainability a lot more difficult. And also, a static method cannot be tested in isolation.
+
+5. Avoid using constructors: The constructors must strictly be avoided because they make the program usability difficult from a client’s perspective.
+                             In order to use a program that is invoked by a constructor, the client needs to remember the order of the parameters and the object initialization isn’t possible 
+                             if the correct order is forgotten. In cases where the constructor demands multiple parameters, the usability of the program becomes a lot more difficult. 
+                             One alternative solution is the builder pattern.
+
+6. Reducing Conditional statements: The usage of conditional statements must be reduced as much as possible as using too many conditional statements increases the complexity and the code cannot be reused.
+                                    Instead, we can make use of interfaces and abstract classes and implement the conditional logic in different methods which can be reused and also, 
+                                    the single responsibility of the methods and classes is maintained. Wherever we need to reuse the same conditioning, we simply call the method where it is implemented 
+
+
+
+

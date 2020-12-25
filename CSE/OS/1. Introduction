@@ -1,0 +1,118 @@
+
+
+* Operating System : An operating system is a program that controls the execution of application programs and acts as an interface between the user of a computer and the computer hardware.
+
+* Computer System Structure :
+
+1.  User   
+2.  System and application programs  
+3.  Operating system  
+4.  Hardware 
+
+* Interrupt :  An interrupt is a signal to the processor emitted by hardware or software indicating an event that needs immediate attention
+               Hardware may trigger an interrupt by sending a signal to CPU,usually by way of System Bus .
+               Software may use System Calls(or monitor call). EG : fork() to create a new process, or cout to print something .
+
+
+                                ################## FUNCTIONS OF OS ####################
+* Resource utilization
+* Resource allocation
+* Process management
+* Memory management
+* File management
+* I/O management
+* Device management
+
+                ######### MEMORY ############
+
+
+* Primary memory includes ROM and RAM, and is located close to the CPU on the computer motherboard, enabling the CPU to read data from primary memory very quickly indeed.
+  It is used to store data that the CPU needs imminently so that it does not have to wait for it to be delivered.
+
+  The key differences between DRAM(Dynamic RAM) and SRAM(Static RAM) is that SRAM is faster than DRAM - perhaps 2 to 3 times faster - but more expensive and bulkier .
+
+  ROM : ROM stands for read-only memory, and the name stems from the fact that while data can be read from this type of computer memory, data cannot normally be written to it.
+        It is a very fast type of computer memory which is usually installed close to the CPU on the motherboard.
+
+        ROM is a type of non-volatile memory, which means that the data stored in ROM persists in the memory even when it receives no power – for example when the computer is turned off.
+        In that sense it is similar to secondary memory, which is used for long term storage.
+
+        When a computer is turned on, the CPU can begin reading information stored in ROM without the need for drivers or other complex software to help it communicate.
+        The ROM usually contains "bootstrap code" which is the basic set of instructions a computer needs to carry out to become aware of the operating system stored in secondary memory, 
+        and to load parts of the operating system into primary memory so that it can start up and become ready to use.
+
+  ROM is also used in simpler electronic devices to store firmware which runs as soon as the device is switched on.
+
+* Secondary memory by contrast, is usually located within a separate storage device, such as a hard disk drive or solid state drive (SSD), which is connected to the computer system directly or over a network.
+  The cost per gigabyte of secondary memory is much lower, but the read and write speeds are significantly slower. Extension of main memory that provides large nonvolatile storage capacity
+
+
+                ################### RAM V/S  ROM #####################
+
+RAM:
+
+*    Volatile
+*    Fast to read and write
+*    Used as system memory to store data (including program code)  that the CPU needs to process imminently
+*    Relatively cheap per megabyte stored compared to ROM, but relatively expensive compared to secondary memory
+
+ROM:
+
+*   Non-volatile
+*   Fast to read
+*   Usually used in small quantities
+*   Cannot be written to quickly
+*   Used to store boot instructions or firmware
+*   Relatively expensive per megabyte stored compared to RAM
+
+
+
+                        #################### PRIMARY MEMORY V/S SECONDARY MEMORY #####################
+
+No. 	                Primary memory 	                                                            Secondary memory
+
+1. 	Primary memory is temporary.                                                 	Secondary memory is permanent.
+2. 	Primary memory is directly accessible by Processor/CPU. 	                    Secondary memory is not directly accessible by the CPU.
+3. 	Nature of Parts of Primary memory varies, RAM- volatile in nature.  	        It’s always Non-volatile in nature.
+    ROM : Non-volatile.
+4. 	Primary memory devices are more expensive than secondary storage devices.    	Secondary memory devices are less expensive when compared to primary memory devices.
+5. 	The memory devices used for primary memory are semiconductor memories. 	        The secondary memory devices are magnetic and optical memories.
+6. 	Primary memory is also known as Main memory or Internal memory. 	            Secondary memory is also known as External memory or Auxiliary memory.
+7. 	Examples: RAM, ROM, Cache memory, PROM, EPROM, Registers, etc. 	                Examples: Hard Disk, Floppy Disk, Magnetic Tapes, etc.
+
+                        ##################### REGISTER AND CACHE ############################
+
+## REGISTER :  They are small memories within the cpu. They are nearest to the cpu. There are many types of registers like Accumulator, Data Register, Program Counter, General purpose, etc.
+## CACHE :  It's a temporary storage. It resides within the processor chip. It's both very fast and nearer to cpu than ram.The main aim is to try to fill it with the data which might be needed again soon.
+            So it speeds up the computations if next time cpu finds the required data in cache itself (& thus no need to search & fetch data from slower ram).
+
+Summary of Similarities:
+
+* Both resides within the processor chip.
+* Both are faster than any other memory.
+* Both are divided in various types/levels.
+
+Summary of Differences:
+
+* Registers are both faster as well as nearest to cpu than cache.
+* Registers are crucial for the cpu, without registers cpu will not perform in feasible amount of time.
+* Cache can be seen as faster ram, which can help only if the same data is needed again (& again) or if we could predict which data will be needed next (or soon).
+
+                ############ I/O OPERATION #######################
+
+Application programs can  request I/O (read  from a device or write to a device) via the help of O.S . This request is done by calling a System call(Os Routine)
+System call routine  in OS  performs the I/O with the help of device driver routines in OS
+    Every device has a device controller and a device driver to communicate with the operating system.
+    Each device controller has a register and local buffer
+    The Device Controller works like an interface between a device and a device driver.
+    OS have a device driver for each device controller that presents a uniform interface to the device to the rest of OS
+
+### STEPS FOR I/O OPERATION : 
+* To start an I/O operation, the device driver loads appropriate registers in  the device controller.
+* The device controller examines the contents of registers to determine what action to take .
+* The controller starts transfering data from device to local buffer.
+* When transfer is done, controller informs device driver via interrupt about completion of transfer . 
+* The device driver returns control to the OS . 
+
+NOTE : For bulk data movement this interrupt driven I/O isn't effecient , so Direct Memory Access (DMA) is used .
+

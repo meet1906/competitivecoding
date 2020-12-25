@@ -1,0 +1,78 @@
+                    ############### SQL | DDL, DQL, DML, DCL and TCL Commands ###################
+
+
+SQL is the database language by the use of which we can perform operations on the existing database and also we can use this language to create a database. 
+                                                        (CREATE , READ , UPDATE , DELETE i.e CRUD )
+
+These SQL commands are mainly categorized into four categories as:
+
+* DDL – Data Definition Language
+* DQl – Data Query Language
+* DML – Data Manipulation Language
+* DCL – Data Control Language
+
+* Though many resources claim there to be another category of SQL clauses TCL – Transaction Control Language. So we will see in detail about TCL as well.
+
+
+## 1.DDL(Data Definition Language) : DDL or Data Definition Language actually consists of the SQL commands that can be used to define the database schema. 
+                                     It deals with descriptions of the database schema and is used to create and modify the structure of database objects in the database.
+Examples of DDL commands:
+
+*CREATE – is used to create the database or its objects (like table, index, function, views, store procedure and triggers).
+*DROP – is used to delete objects from the database.
+*ALTER - is used to alter the structure of the database.
+*TRUNCATE – is used to remove all records from a table, including all spaces allocated for the records are removed.
+*COMMENT – is used to add comments to the data dictionary.
+*RENAME – is used to rename an object existing in the database.
+
+## 2. DML(Data Manipulation Language) : The SQL commands that deals with the manipulation of data present in the database belong to DML and this includes most of the SQL statements.
+
+Examples of DML:
+
+* INSERT – is used to insert data into a table.
+* UPDATE – is used to update existing data within a table.
+* DELETE – is used to delete records from a database table.
+
+## 3. DCL(Data Control Language) : DCL includes commands such as GRANT and REVOKE which mainly deals with the rights, permissions and other controls of the database system.
+
+Examples of DCL commands:
+
+* GRANT  - gives user’s access privileges to database.
+* REVOKE - withdraw user’s access privileges given by using the GRANT command.
+
+## 4. TCL(transaction Control Language) : TCL commands deals with the transaction within the database.
+
+Examples of TCL commands:
+
+* COMMIT – commits a Transaction.
+* ROLLBACK – rollbacks a transaction in case of any error occurs.
+* SAVEPOINT – sets a savepoint within a transaction.
+* SET TRANSACTION – specify characteristics for the transaction.
+
+
+## 5. DQL (Data Query Language) : DML statements are used for performing queries on the data within schema objects. 
+                                  The purpose of DQL Command is to get some schema relation based on the query passed to it.
+Example of DQL: 
+
+* SELECT – is used to retrieve data from the a database.
+
+
+
+########## DELETE VS DROP VS TRUNCATE ##################
+
+Which operation is best for which use case?
+
+* To remove specific rows, use DELETE.
+* To remove all rows from a large table and leave the table structure, use TRUNCATE TABLE. It’s faster than DELETE.
+* To remove an entire table, including its structure and data, use DROP TABLE.
+
+
+* DELETE IS AN DML COMMAND, IT FIRES DML TRIGGER SO , WE CAN USE THE "ROLLBACK" COMMAND TO RESTORE THE TUPLE.
+  BUT DROP AND TRUNCATE ARE DDL, THEY ARE PERMANENT, CAN'T BE ROLLBACK.
+
+############# DML triggers   #################
+
+DML triggers is a special type of stored procedure that automatically takes effect when a DML event takes place that affects the table or view defined in the trigger.
+DML events include INSERT, UPDATE, or DELETE
+
+

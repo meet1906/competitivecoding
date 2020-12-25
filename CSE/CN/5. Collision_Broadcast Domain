@@ -1,0 +1,36 @@
+                                    ################# COLLISION DOMAIN #####################
+
+
+The term collision domain is used to describe a part of a network where packet collisions can occur. Packet collisions occur when two devices on a shared network segment send packets simultaneously.
+The colliding packets must be discarded and sent again, which reduces network efficency.
+
+Collisions occur often in a hub environment because all devices connected to the hub are in the same collision domain.
+Only one device may transmit at time, and all the other devices connected to the hub must listen to the network to avoid collisions. Total network bandwidth is shared among all devices.
+
+In contrast to hubs, every port on a bridge, switch, or a router is in a separate collision domain.
+This eliminates the possibility of collisions and enables the devices to use the full-duplex mode of communication, which effectively doubles the maximum data capacity.
+
+Pic 5.1 Explanation :  
+In the picture above you can see a network of seven computers, two hubs, a bridge, a switch, and a router. The collision domains created by these devices are marked in red.
+Remember, all devices connected to the hub are in the same collision domain. Each port on a bridge, a switch or router is in a seperate collision domain.
+That is why there are seven collision domains in the network pictured above.
+
+
+
+                                    ################# BROADCAST DOMAIN ######################
+
+The term broadcast domain is used to describe a group of devices on a specific network segment that can reach each other with Ethernet broadcasts.
+Broadcasts sent by a device in one broadcast domain are not forwarded to devices in another broadcast domain.
+This improves the performance of the network because not all devices on a network will receive and process broadcasts.
+
+Routers separate a LAN into multiple broadcast domains (every port on a router is in a different broadcast domain).
+Switches (by default) flood Ethernet broadcast frames out all ports, just like bridges and hubs. All ports on these devices are in the same broadcast domain.
+
+Note:  Ethernet broadcasts are usually used by Address Resolution Protocol (ARP) to translate IP addresses to MAC addresses.
+
+
+Pic 5.2 Explanation : 
+In the picture above we have a network of six computers, two hubs, a bridge, a switch, and a router.
+The broadcast domains are marked in red. Remember, all devices connected to a hub, a bridge, and a switch are in the same broadcast domain.
+Only routers separate the LAN into multiple broadcast domains. That is why we have four broadcast domains in the network pictured above.
+

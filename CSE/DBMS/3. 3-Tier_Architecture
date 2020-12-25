@@ -1,0 +1,89 @@
+                                            ############# 3-TIER ARCHITECHTURE ###############
+
+
+DBMS 3-tier architecture divides the complete system into three inter-related but independent modules as shown
+
+A. External or View level: Describes various user views
+B. Conceptual or Logical Level: Structure and constraints for the entire database
+C. Internal Level: Actual PHYSICAL storage structure and access paths.
+
+        EXTERNAL   (VIEW) LEVEL
+                 ^
+                 |
+        CONCEPTUAL (LOGICAL) LEVEL
+                 ^
+                 |
+        INTERNAL   (PHYSICAL) LEVEL
+
+
+
+###### Internal Level/Schema
+The internal schema defines the physical storage structure of the database. The internal schema is a very low-level representation of the entire database.
+It contains multiple occurrences of multiple types of internal record. In the ANSI term, it is also called "stored record'.
+
+Facts about Internal schema:
+
+* The internal schema is the lowest level of data abstraction
+* It helps you to keeps information about the actual representation of the entire database. Like the actual storage of the data on the disk in the form of records
+* The internal view tells us what data is stored in the database and how
+* It never deals with the physical devices. Instead, internal schema views a physical device as a collection of physical pages
+
+
+
+###### Conceptual Schema/Level
+The conceptual schema describes the Database structure of the whole database for the community of users.
+This schema hides information about the physical storage structures and focuses on describing data types, entities, relationships, etc.
+
+This logical level comes between the user level and physical storage view. However, there is only single conceptual view of a single database.
+
+Facts about Conceptual schema:
+
+* Defines all database entities, their attributes, and their relationships
+* Security and integrity information
+* In the conceptual level, the data available to a user must be contained in or derivable from the physical level
+
+
+
+##### External Schema/Level
+An external schema describes the part of the database which specific user is interested in. It hides the unrelated details of the database from the user.
+There may be "n" number of external views for each database.
+
+Each external view is defined using an external schema, which consists of definitions of various types of external record of that specific view.
+
+An external view is just the content of the database as it is seen by some specific particular user. For example, a user from the sales department will see only sales related data.
+
+Facts about external schema:
+
+* An external level is only related to the data which is viewed by specific end users.
+* This level includes some external schemas.
+* External schema level is nearest to the user
+* The external schema describes the segment of the database which is needed for a certain user group and hides the remaining details from the database from the specific user group
+
+
+################# Goal of 3 level/schema of Database ####################
+Here, are some Objectives of using Three schema Architecture:
+
+* Every user should be able to access the same data but able to see a customized view of the data.
+* The user need not to deal directly with physical database storage detail.
+* The DBA should be able to change the database storage structure without disturbing the user's views
+* The internal structure of the database should remain unaffected when changes made to the physical aspects of storage.
+
+
+
+
+################# Data Independence       ##################
+
+Data independence means a change of data at one level should not affect another level. Two types of data independence are present in this architecture:
+
+
+
+Physical Data Independence: Any change in the physical location of tables and indexes should not affect the conceptual level or external view of data.
+                            This data independence is easy to achieve and implemented by most of the DBMS.
+                            
+Conceptual Data Independence: The data at conceptual level schema and external level schema must be independent. This means a change in conceptual schema should not affect external schema.
+                              E.g. Adding or deleting attributes of a table should not affect the user’s view of the table. 
+                              But this type of independence is difficult to achieve as compared to physical data independence because the changes in conceptual schema are reflected in the user’s view.
+
+
+
+

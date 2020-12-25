@@ -1,0 +1,130 @@
+                                    ################## CPU SCHEDULING ####################
+
+* CPU Scheduler :  Selects from among the processes in main memory that are ready to execute, and allocates the CPU to one of them
+
+* Non-Preemptive Scheduling : Once the CPU has been allocated to a process, the process keeps the CPU until it releases the CPU either by terminating or by switching to the waiting state.
+
+* Preemptive Scheduling : In this type of Scheduling, the tasks are usually assigned with priorities. 
+	                      At times it is necessary to run a certain task that has a higher priority before another task although it is running. 
+	                      Therefore, the running task is interrupted for some time and resumed later when the priority task has finished its execution.
+
+
+
+                                #################  SCHEDULING CRITERIA   ########################
+
+* CPU utilization – keep the CPU as busy as possible
+* Throughput – # of processes that complete their execution per time unit
+* Turnaround time – amount of time to execute a particular process(from submission to till completion)
+* Waiting time – amount of time a process has been waiting in the ready queue
+* Response time – amount of time it takes from when a request was submitted until the first response is produced, not output  (for time-sharing environment)
+
+                               ########### SCHEDULING ALGORITHM OPTIMIZATION CRITERIA ################
+
+* Max CPU utilization
+* Max throughput
+* Min turnaround time 
+* Min waiting time 
+* Min response time
+
+
+                        ############# DIFFERENT SCHEDULING ALGORITHMS ######################
+
+1. First Come First Serve ( FCFS ) : 
+
+* Simplest
+* Process that requests CPU first is allocated CPU first.
+* Implementation of FCFS policy is managed by FIFO queue.
+* When a process enters the ready queue, its PCB is linked to the tail of the queue.
+* When CPU is free, it is allocated to the process at the head of the queue.
+* Running process is then removed fro the queue.
+* Average Waiting Time is often long.
+* FCFS is a non-preemptive algorithm
+
+##### LIMITATIONS :  
+
+* It is a non pre-emptive algorithm which means once CPU has been allotted to a process, that process keeps the CPU until it release the CPU either by terminating it or by requesting I/O.
+* Not optimal Average waiting time .
+* Leads to Convoy effect - as all the other processes wait for one big process to release the CPU. This results in lower CPU and device utilization.
+* Troublesome for time sharing systems.
+
+
+2. Shortest Job First ( SJF ) : 
+
+* Associate with each process the length of its next CPU burst.  Use these lengths to schedule the process with the shortest time
+* If the next CPU bursts of two processes are same, then FCFS is used to break the tie.
+* SJF is optimal – gives minimum average waiting time for a given set of processes
+                   The difficulty is knowing the length of the next CPU request
+
+###### CAN BE DIVIDED INTO TWO VERSIONS : 
+
+1. Non pre-emptive
+2. Pre-emptive :  When a process is executing, another process comes with shortest CPU burst time, then CPU is given  to that process.
+            $$$$  Pre-emptive scheduling is also called shortest remaining time first scheduling(SRTF)
+
+###### LIMITATIONS : 
+
+* Burst time of processes cannot be known in advance.
+* Processes with largest burst time has poor response time.
+
+
+
+
+3. Priority Scheduling : 
+
+* A priority number (integer) is associated with each process
+* The CPU is allocated to the process with the highest priority (Assume smallest integer  highest priority)
+        Preemptive
+        nonpreemptive
+
+* SJF is a priority scheduling where priority is the predicted next CPU burst time
+
+#### LIMITATIONS :
+
+* Priority scheduling is a non-preemptive algorithm and one of the most common scheduling algorithms in batch systems
+* Processes with same priority are executed on first come first served basis.
+
+* In priority scheduling algorithm, there's  chances of indefinite blocking or starvation.
+* A process is considered blocked when it is ready to run but has to wait for the CPU as some other process is running currently.
+
+* In case of priority scheduling if new higher priority processes keeps coming in the ready queue then the processes waiting in the ready queue with lower priority may have to wait for long durations 
+  before getting the CPU for execution.
+* To prevent starvation of any process, we can use the concept of aging where we keep on increasing the priority of low-priority process based on the its waiting time.
+
+
+
+4. Round Robin Scheduling
+
+* Round Robin is the preemptive process scheduling algorithm.
+* Each process is provided a fix time to execute, it is called a quantum.
+
+* Once a process is executed for a given time period, it is preempted and other process executes for a given time period.
+* Context switching is used to save states of preempted processes.
+
+
+
+5. Multiple-Level Queues Scheduling
+
+Multiple-level queues are not an independent scheduling algorithm. They make use of other existing algorithms to group and schedule jobs with common characteristics.
+
+    Multiple queues are maintained for processes with common characteristics.
+    Each queue can have its own scheduling algorithms.
+    Priorities are assigned to each queue.
+
+For example, CPU-bound jobs can be scheduled in one queue and all I/O-bound jobs in another queue.
+The Process Scheduler then alternately selects jobs from each queue and assigns them to the CPU based on the algorithm assigned to the queue.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

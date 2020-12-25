@@ -1,0 +1,135 @@
+
+######## SUBNETTING : Subnetting is the practice of dividing a network into two or more smaller networks.
+                      It increases routing efficiency, enhances the security of the network and reduces the size of the broadcast domain.
+
+
+EG : 
+
+Suppose we have one huge network: 10.0.0.0/24. All hosts on the network are in the same subnet, which has following disadvantages:
+
+** a single broadcast domain – all hosts are in the same broadcast domain. A broadcast sent by a device on the network will be processed by all hosts.
+** network security – each device can reach any other device on the subnet, which can present security problems.
+** organizational problems – in a large networks, different departments are usually grouped into different subnets.
+                             Eg, you can group all devices from the Accounting department in the same subnet and then give access to sensitive financial data only to hosts from that subnet.
+
+
+The network above could be subnetted like this:
+
+Create two subnets for different departments: 10.0.0.0/24 for Accounting and 10.1.0.0/24 for Marketing. 
+Devices in each subnet are in a different broadcast domain.
+
+######### 
+
+An IP address is divided into two parts: the network part and the host part. For example, an IP address from the Class A consists of 8 network bits and 24 host bits.
+This is so because the default subnet mask for a class A IP address is 8 bits (or, written in dotted decimal notation, 255.0.0.0). 
+What does this mean? Well, just like an IP address, a subnet mask also consists of 32 bits. It is used by computers to determine the network part and the host part of an IP address.
+The 1s in the subnet mask represent a network part, the 0s a host part.
+
+Here is an example. Let’s say that we have the IP address of 10.0.0.1, with the default subnet mask of 255.0.0.0.
+
+First, we need to convert the IP address to binary:
+
+IP address – 10.0.0.1 = 00001010.00000000.00000000.00000001
+Subnet mask – 255.0.0.0 = 11111111.00000000.00000000.00000000
+
+Computers use the binary AND operation to determine the network number:
+
+00001010.00000000.00000000.00000001 =  10.0.0.1
+11111111.00000000.00000000.00000000 = 255.0.0.1
+_______________________________________________
+00001010.00000000.00000000.00000000 =  10.0.0.0
+_______________________________________________
+
+The network part of the IP address (10) has been determined. The computer can now determine the size of the network. Only IP addresses that begins with 10 will be in the same network.
+In this case, the range of addresses in this network is 10.0.0.0 – 10.255.255.255.
+
+
+############## CLASSES OF IP ADDRESS ###################
+
+IP addresses are divided into five classes that are identified by the value of the first octet (the first decimal number).
+The system of IP address classes was developed for the purpose of Internet IP addresses assignment. The classes created were based on the network size. 
+For example, for the small number of networks with a very large number of hosts, the Class A was created. The Class C was created for the numerous networks with the small number of hosts.
+
+The IP address classes are:
+
+Class A, 0-127 – for example, 10.50.13.40. For large networks with many devices.
+Class B, 128-191 – for example, 130.5.4.77. For medium-sized networks.
+Class C, 192-223 – for example, 192.168.5.10. For small networks with the small number of hosts.
+Class D, 224-239 – for example, 224.0.0.5. For multicast addresses.
+Class E, 240-255 – for example, 241.0.0.1. Experimental.
+ 
+
+Reserved addresses (used for special purposes):
+
+** 0.0.0.0/8 – used to communicate with the network the device is on.
+** 127.0.0.0/8 – loopback addresses.
+** 169.254.0.0/16 – link-local addresses (APIPA).
+ 
+
+An IP address consists of 32 bits. These bits are divided into two parts:
+
+** network bits – identify a particular network.
+**   host  bits – identify a host on the network.
+
+
+IP address classes
+ 
+
+Class	Leading bits Size of network    Size of rest    No. of           Addresses          Total addresses      Start address       End Address
+                     no bit field       bit field       networks         per network        in class	
+
+Class A	    0	        8	            24	            128 (2^7)	     16,777,216 (2^24)	2,147,483,648 (2^31)	0.0.0.0	        127.255.255.255
+Class B	    10	        16	            16	            16,384 (2^14)	 65,536 (2^16)	    1,073,741,824 (2^30)	128.0.0.0	    191.255.255.255
+Class C	    110	        24	            8	            2,097,152 (2^21) 256 (2^8)	        536,870,912 (2^29)	    192.0.0.0	    223.255.255.255
+Class D     1110    not defined	    not defined	        not defined	    not defined	        268,435,456 (2^28)	    224.0.0.0	    239.255.255.255
+(Multicast)
+Class E 	1111	not defined	    not defined	        not defined	    not defined	        268,435,456 (^228)	    240.0.0.0	    255.255.255.255
+(reserved)
+
+######## IP ADDRESS  = BYTE1:BYTE2:BYTE3:BYTE4
+
+#### Class A 
+
+In a Class A network, the first eight bits, or the first dotted decimal, is the network part of the address, with the remaining part of the address being the host part of the address.
+There are 128 possible Class A networks.
+
+0.0.0.0 to 127.0.0.0
+ 
+However, any address that begins with 127. is considered a loopback address.
+
+Example for a Class A IP address:
+
+2.134.213.2
+
+#### Class B
+
+In a Class B network, the first 16 bits are the network part of the address. All Class B networks have their first bit set to 1 and the second bit set to 0. In dotted decimal notation, that makes 128.0.0.0 to 191.255.0.0 as Class B networks. There are 16,384 possible Class B networks.
+
+Example for a Class B IP address:
+
+135.58.24.17
+
+#### Class C
+
+In a Class C network, the first two bits are set to 1, and the third bit is set to 0. That makes the first 24 bits of the address the network address and the remainder as the host address. Class C network addresses range from 192.0.0.0 to 223.255.255.0. There are over 2 million possible Class C networks.
+
+Example for a Class C IP address:
+
+192.168.178.1
+ 
+
+#### Class D
+
+Class D addresses are used for multicasting applications. Unlike the previous classes, the Class D is not used for "normal" networking operations. Class D addresses have their first three bits set to “1” and their fourth bit set to “0”. Class D addresses are 32-bit network addresses, meaning that all the values within the range of 224.0.0.0 – 239.255.255.255 are used to uniquely identify multicast groups. There are no host addresses within the Class D address space, since all the hosts within a group share the group’s IP address for receiver purposes.
+
+Example for a Class D IP address:
+
+227.21.6.173
+
+#### Class E
+
+Class E networks are defined by having the first four network address bits as 1. That encompasses addresses from 240.0.0.0 to 255.255.255.255. While this class is reserved, its usage was never defined. As a result, most network implementations discard these addresses as illegal or undefined. The exception is 255.255.255.255, which is used as a broadcast address.
+
+Example for a Class D IP address:
+
+243.164.89.28

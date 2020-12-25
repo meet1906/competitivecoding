@@ -1,0 +1,110 @@
+                ############ CLASSIFICATION OF COMPUTER BASED ON No. of GENERAL PURPOSE PROCESSORS ####################
+
+1. Single Processor System : 1 main CPU capable of executing a general purpose instruction set including instructions from CPU Processes.
+                             So only one process can be executed at a time and then the process is selected from the ready queue.  
+
+2. Multi  Processor System : 2 or more Processors in close communication sharing the bus,memory and peripheral devices .
+                             ADVANTAGES : 
+                                         * Increased Throughput
+                                         * Economy of scale
+                                         * Increased Reliablity
+
+                            ## MULTICORE PROCESSOR :
+                               * Instead of multiple single cores include multiple computer cores on a single chip.
+                               * More effecient than multiple single core systems.
+                               * 1 chip with multi core uses less power .
+                                 EG : Dual-core systems.
+
+3. Clustered Systems :  Like multiprocessor systems, but multiple systems working together , Usually sharing storage and linked via a LAN
+                        Provides a high-availability service which survives failures
+                        Scalable,it's easy to add new nodes to the system.
+
+                        * Asymmetric clustering has one machine in hot-standby mode and others running applications.
+                                Hot standby node monitors the active server. 
+                                If that server fails, the hot-standby host becomes the active server.
+                        * Symmetric clustering has multiple nodes running applications, monitoring each other       
+
+
+                ############# MULTI PROCESSOR SYSTEM V/S CLUSTERED SYSTEM ###############
+
+* Multiprocessor systems are single computers which have multiple CPUs.
+* Clusters are groups of computers which work together to accomplish some specific work.
+* Multiprocessor systems are a lot faster because work communication / coordination is handled by cache memory, and at worst RAM.
+* Clustered computers are slower, they have to communicate / coordinate via network.
+  But they can handle much larger problems. And they can be setup to have redundancy so that one cluster member failing will only slow down work, not halt it.
+
+
+           ############### TYPE OF MULTIPROCESSOR SYSTEM ######################
+
+1. Symmetric Multiprocessing : All the processors are peers.
+                               All the processros are involved in all tasks. 
+                               All the processors share common memory.
+
+2.Asymmetric Multiprocessing : Master - Slave Relationship.
+                               1 processor acts as master and monitors others and assigns tasks for them . 
+                               Slaves takes care of processes and each processor is responsible for 1 task unlike Symmetric Multiprocessing .
+
+
+        ############## MULTIPROGRAMMING V/S MULTIPROCESSING V/S MULTITASKING V/S MULTITHREADING ############################
+
+* Multiprogramming : Multiprogramming is also the ability of an operating system to execute more than one program on a single processor machine.
+                     More than one task/program/job/process can reside into the main memory at one point of time.
+                     When the running process has to wait (for I/O for example), OS switches to another job .
+
+* Multiprocessing  : Multiprocessing is the ability of an operating system to execute more than one process simultaneously on a multi processor machine.
+                     In this, a computer uses more than one CPU at a time.   
+
+* Multitasking     : Multiple jobs are executed by the CPU simultaneously by switching between them.  
+
+* Multithreading   : Multithreading is a conceptual programming paradigm where a process is divided into a number of sub-processes called as threads.
+                     Each thread is independent and has its own path of execution with enabled inter thread communication.
+                     Thread is the path followed while executing a program. Each thread has its own program counter, stack and register."
+                     A thread is a light weight process.   
+
+No 	Characteristic 	    Multiprogramming 	    Multiprocessing 	    Multithreading 	                Multitasking
+1.    Definition            Definition            Definition              Definition                     Definition
+2 	Number of CPU: 	        One 	            More than one 	  Can be one or more than one 	        One
+3 	Job processing time: 	More time  	        Less time  	      Moderate amount  	                Moderate amount of time.
+
+4 	No of process : 	One process  	   More than one process  Various components of the same  	One by one job is being     
+    being executed                                                process are being executed        executed at a time .
+
+5 	Economical: 	    It is economical. 	    less economical.    Is economical. 	                It is economical.
+6 	Number of users: 	One at a time. 	        1 or more than 1. 	Usually one. 	                More than one.
+7 	Throughput: 	    less. 	                maximum. 	        Moderate. 	                    Throughput is moderate.
+8 	Efficiency: 	    Less 	                Maximum 	        Moderate 	                    Moderate
+9 	Categories: 	No further divisions 	Symmetric & Asymmetric. No further divisions. 	Single User & Multiuser.
+
+
+                                        ####################### DUAL-MODE OF OS ######################
+
+To ensure proper execution of OS, we must be able to distinguish between execution of OS code and user code.
+Dual-mode operation allows OS to protect itself and other system components
+** User mode 
+** Kernel mode(Supervisor mode/System mode/Privileged mode) 
+
+###### Mode bit
+A bit added to the computer hardware to indicate the current mode.
+Kernel(0) and user(1) 
+Provides ability to distinguish when system is running user code or kernel code.
+
+Some instructions designated as privileged, only executable in kernel mode
+Eg: I/O control, interrupt management etc
+
+
+
+                                    ################ PROCESS v/s PROGRAM v/s THREAD #######################
+
+* PROGRAM : It is a set of instructions designed to complete a specific task.
+            Passive entity as it resides in the secondary memory.
+            Static entity.No resource requirement other than storage space.
+
+* PROCESS : Process is a program in execution.
+            It is an active entity as it's created during execution and loaded into the main memory .
+            Dynamic entity.Resource requirement like CPU,I/O during it's lifetime.
+
+* THREAD  : Thread is an execution unit which consists of its own program counter, a stack, and a set of registers. 
+            Threads are also known as Lightweight processes. 
+
+
+

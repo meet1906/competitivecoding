@@ -1,0 +1,12 @@
+                                    ############ Database Objects in DBMS ################
+
+A database object is any defined object in a database that is used to store or reference data.Anything which we make from create command is known as Database Object.
+It can be used to hold and manipulate the data.Some of the examples of database objects are : view, sequence, indexes, etc.
+
+* Table – Basic unit of storage; composed rows and columns
+* View – Logically represents subsets of data from one or more tables
+* Sequence – Generates primary key values
+* Index – Improves the performance of some queries
+* Synonym – Alternative name for an object
+
+

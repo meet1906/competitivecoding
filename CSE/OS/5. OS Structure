@@ -1,0 +1,61 @@
+                                                ############# OPERATING SYSTEM STRUCTURE ################
+
+Operating system can be implemented with the help of various structures. The structure of the OS depends mainly on how the various components of the OS are interconnected and melded into the kernel.
+
+Depending on this we have following structures of the operating system:
+
+1) Simple Structure/ Monolithic : 
+
+Such operating systems do not have well defined structure and are small, simple and limited systems. The interfaces and levels of functionality are not well separated.
+MS-DOS is an example of such operating system. In MS-DOS application programs are able to access the basic I/O routines.
+
+These types of operating system cause the entire system to crash if one of the user programs fails.
+
+EG : MS-DOS 
+
+
+2) Layered Approach :
+
+The operating system is divided into a number of layers (levels), each built on top of lower layers.  The bottom layer (layer 0), is the hardware; the highest (layer N) is the user interface.
+OS layer M consists of data structures and a set of routines that can be invoked by higher level layers.
+Layer M in turn can invoke operations on lower-level layers.
+
+    ## ADVANTAGE :
+        * Simplicity of Constructing and debugging.
+        * Information Hiding 
+
+    ## LIMITATIONS :
+        * Difficulty in defining various layers.
+        * Less efficiency
+
+EG : UNIX
+
+3) MicroKernel System Structure :
+
+This structure designs the operating system by removing all non-essential components from the kernel and implementing them as system and user programs.
+This result in a smaller kernel called the micro-kernel.
+
+Advantages of this structure are that all new services need to be added to user space and does not require the kernel to be modified.
+Thus it is more secure and reliable as if a service fails then rest of the operating system remains untouched.
+EG : Mac OS 
+
+4) Modular Structure/Approach :
+
+It is considered as the best approach for an OS. It involves designing of a modular kernel.
+The kernel has only set of core components and other services are added as dynamically loadable modules to the kernel either during run time or boot time.
+It resembles layered structure due to the fact that each kernel has defined and protected interfaces but it is more flexible than the layered structure as a module can call any other module.
+
+EG : Solaris OS 
+
+
+                                                ############### VIRTUAL MACHINE #####################
+
+A virtual machine (VM) is a virtual environment that functions as a virtual computer system with its own CPU, memory, network interface, and storage, 
+created on a physical hardware system (located off- or on-premises), hence giving us a feel that each execution environment is a single computer. 
+For example, VirtualBox.
+
+When we run different processes on an operating system, it creates an illusion that each process is running on a different processor having its own virtual memory, 
+with the help of CPU scheduling and virtual-memory techniques. 
+
+
+

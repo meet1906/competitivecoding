@@ -1,0 +1,95 @@
+Q1. How does email work? Mention the entire process of sending and receiving an email.
+
+* First, you use a mail user agent, or MUA to read and send email from your device (such as gmail, or the mail app on Apple devices). 
+* Generally, they communicate with a mail transfer agent, or MTA (also known as a mail server, MX host, and mail exchanger), which serves to receive and store your emails.
+* Emails are stored remotely until you open your MUA in order to check your email. Emails are delivered by mail delivery agents (MDA), which are generally packaged with the MTA.
+* Mail is sent to a mail server using SMTP, or Simple Mail Transfer Protocol. SMTP is a communication protocol for email. 
+* Mail would then be downloaded from the server using Post Office Protocol (POP3). 
+  POP3 is an application-layer protocol which provides access via an internet protocol (IP) network for a user application to contact a mailbox on a mail server.
+  It can connect, retrieve messages, store them on the client's computer, and delete or retain them on the server. 
+
+* Now, IMAP, Internet Message Access Protocol, has mostly replaced POP3. IMAP can allow multiple clients to manage the same mailbox (so you can read your email from your desktop, laptop, and phone, etc.
+  and all of your messages will be there, organized in the same way). 
+
+
+Q2. Security in email .
+
+Most places use TLS (transport layer security, the replacement for SSL, secure sockets layer), a cryptographic protocol which provides encryption in transit.
+It provides protection for when the message is being transmitted, but not when the data is at rest, (for example, being stored on your computer).
+
+This ensures that a message isn't altered or snooped on while it's traveling from MTA to MTA. However, this doesn't verify that the message wasn't modified during the trip.
+
+For example, if the email goes through multiple mail servers before it reaches its final destination, using TLS will ensure it is encrypted between the servers, 
+but each server could alter the message content. In order to address that, we've created SPF, DKIM, and DMARC.
+
+Q3.  What kind of protocols are used in Instant Messaging Applications? Why?
+
+Messaging protocols like WebSockets and XMPP are two of the most widely used instant messaging protocols in the market - being used by messaging apps like Whatsapp, Telegram, and Hike.
+While XMPP assures rich security and lacks speed, WebSockets delivers the complete opposite. 
+
+Q4. Difference between POP3 and IMAP .
+
+                        Post Office Protocol (POP3) 	                                                                    Internet Message Access Protocol (IMAP)
+
+POP3 is a simple protocol that only allows downloading messages from your Inbox to your  	IMAP is much more advanced and allows you the user to see all the folders on the mail server.
+local computer.
+
+The POP server listens on port 110, and the POP with SSL secure(POP3DS) server              IMAP server listens on port 143, and the IMAP with SSL secure(IMAPDS) server listens on port 993.
+listens on port 995
+
+In POP3 the mail can only be accessed from a single device at a time.                    	Messages can be accessed across multiple devices
+To read the mail it has to be downloaded on the local system. 	                            The mail content can be read partially before downloading.
+The user can not organize mails in the mailbox of the mail server. 	                        The user can organize the emails directly on the mail server.
+The user can not create, delete or rename email on the mail server. 	                    The user can create, delete or rename email on the mail server.
+A user can not search the content of mail before downloading to the local system. 	        A user can search the content of mail for specific string before downloading.
+
+It has two modes : delete mode and keep mode.                                               Multiple redundant copies of the message are kept at the mail server, 
+In delete mode , the mail is deleted from mail box after retrieval.                         in case of loss of message of a local server, the mail can still be retrieved
+In keep mode , the mail remains in the mail box after retrieval.
+	
+Changes in the mail can be done using local email software.                              	Changes made web interface or email software stay in sync with the server.
+All the message are downloaded at once.                                                  	Message header can be viewed prior to downloading.
+
+Q5. SMTP VS POP3
+
+                            SMTP 	                                                                            POP3
+1. 	SMTP stands for Simple Mail Transfer Protocol. 	                    POP3 stands for Post Office Protocol version 3.
+2. 	It is used for sending messages. 	                                It is used for accessing messages.
+3. 	The port number of SMTP is 25.                               	    The port number of POP3 is 110.
+4. 	It is a MTA (Message Transfer Agent) for sending  	                It is MAA (Message Access Agent) for accessing the messages from mail box.
+    the message to the receiver
+5. 	It has two MTAs one is client MTA (Message Transfer Agent)  	    It has also two MAAs one is client MAA (Message Access Agent) and another is server MAA(Message Access Agent). 
+    and second one is server MTA (Message Transfer Agent).
+
+6. 	SMTP is also known as PUSH protocol.                         	    POP3 is also known as POP protocol.
+7. 	SMTP transfers the mail from sender’s computer to the mail box      POP3 allows to retrieve and organize mails from mailbox on receiver mail server to receiver’s computer.
+    box present on receiver's mail server.
+
+8. 	It is implied between sender mail server and receiver mail server. 	It is implied between receiver and receiver mail server.
+
+
+
+Q6. Difference between TCP and UDP .
+
+Transmission control protocol (TCP) 	                                                                        User datagram protocol (UDP)
+
+TCP is a connection-oriented protocol.                                           UDP is the Datagram oriented protocol . Or connection less
+means that the communicating devices should establish a connection before        there is no overhead for opening a connection, maintaining a connection, and terminating a connection. 
+transmitting data and should close the connection after transmitting the data.   UDP is efficient for broadcast and multicast type of network transmission.
+
+
+TCP is reliable as it guarantees delivery of data to the destination router. 	The delivery of data to the destination cannot be guaranteed in UDP.
+
+TCP provides extensive error checking mechanisms. It is because it provides  	UDP has only the basic error checking mechanism using checksums.
+flow control and acknowledgment of data.
+
+Sequencing of data is a feature of Transmission Control Protocol (TCP).  	    There is no sequencing of data in UDP. If ordering is required, it has to be managed by the application layer.
+this means that packets arrive in-order at the receiver.
+
+TCP is comparatively slower than UDP. 	                                        UDP is faster, simpler and more efficient than TCP.
+Retransmission of lost packets is possible in TCP, but not in UDP. 	            There is no retransmission of lost packets in User Datagram Protocol (UDP).
+TCP has a (20-80) bytes variable length header. 	                            UDP has a 8 bytes fixed length header.
+TCP is heavy-weight.                                                         	UDP is lightweight.
+TCP doesn’t supports Broadcasting.                                           	UDP supports Broadcasting.
+TCP is used by HTTP, HTTPs, FTP, SMTP and Telnet.                            	UDP is used by DNS, DHCP, TFTP, SNMP, RIP, and VoIP.
+

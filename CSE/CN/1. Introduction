@@ -1,0 +1,87 @@
+                                                #################### COMPUTER NETWORKS #######################
+
+$ COMPUTER NETWORK :  A computer network is a set of computers connected together for the purpose of sharing data and resources.  Computers on a network are called nodes. 
+                      The connection between computers can be done via cabling,such as Ethernet cable or fiber optic cable. Connections can also be wireless.
+
+$ OSI MODEL :  It stands for Open Systems Interconnection. It is a reference model that specifies standards for communciation protocols and also functionalities of each layer
+
+$ Protocol :  Protocol is the set of rules or algorithms which define the way two entities can communicate across the network and there exists different protocol defined at each layer of the OSI model.
+              Few of such protocols are TCP, IP, UDP, ARP, DHCP, FTP and so on.                
+                                                                
+                        ########## UNIQUE IDENTIFIERS OF NETWORK  ###########
+                        
+$ Host name: Each device in the network is associated with a unique device name known as Hostname. 
+
+$ IP Address :  Also known as the Logical Address, the IP Address is the network address of the system across the network. 
+                To identify each device in the world-wide-web, the Internet Assigned Numbers Authority (IANA) assigns an IPV4 address as unique identifier to each device . 
+
+                The length of an IPv4 address is 32-bits, hence, we have 2^32 IP addresses available. The length of an IPv6 address is 128-bits.
+
+$ MAC Address: Media Access Control or physical address, the MAC Address is the unique identifier of each host and is associated with its NIC (Network Interface Card). 
+               A MAC address is assigned to the NIC at the time of manufacturing. 
+               The length of the MAC address is : 48 bits 
+
+$ Port: A port can be referred to as a logical channel through which data can be sent/received to an application.
+        Any host may have multiple applications running, and each of these applications is identified using the port number on which they are running. 
+        A port number is a 16-bit integer, hence, we have 216 ports available which are categorized as shown below: 
+
+        Well known Ports	0 – 1023
+        Registered Ports	1024 – 49151
+        Ephemeral Ports	    49152 – 65535
+
+$ Socket: The unique combination of IP address and Port number together are termed as Socket. 
+
+################# IMPORTANT PORT NUMBERS FOR PROTOCOLS : ############### 
+
+####   FTP - 20, 21
+FTP is the abbreviation of "File Transfer Protocol". The purpose of FTP is to transfer files over the internet. It basically lays down all the rules which are to be followed during the transfer of data.
+Due to the concern of security, it also asks for authentication by the user before the transfer of data. It is associated with the TCP protocol and corresponds to two ports, port 20 and 21.
+Both of these ports function during the application layer.
+
+Port 20 performs the task of forwarding and transferring of data. It takes over the task of transferring FTP data when it is in active mode.
+Port 21 performs the task of signaling for FTP. It listens to all of the commands and provides a flow control for data. It is quite essential for maintaining the flow of data.
+
+####  SSH - 22  (same same 22) 
+SSH is also referred to as 'Secure Shell'. It operates on the port number 22 of the TCP protocol. It carries out the task of remotely connecting to a remote server or host.
+It allows you to execute a number of commands and move your files remotely as well. However, it is one of the most secure ways of accessing your files remotely.
+Using this port, you can remotely connect to a computer and move your files with ease. This port sends the data over the network in an encrypted form which adds an extra layer of security on it. 
+It operates at the Application Layer of the TCP/IP Model and is considered as one of the most secure and reliable ports for accessing files remotely.
+
+####  TELNET - 23
+TELNET port 23 comes under the category of TCP Protocols. Its main function is to establish a connection between a server and a remote computer.
+It establishes a connection once the authentication method has been approved. However, this port is not suitable to establish secure connections and does not cater to the concern of security.
+It enables the remote connection of a computer to be established with routers and switches as well. 
+
+
+#### SMTP - 25
+SMTP is known as the Simple Mail Transfer Protocol. It is associated with the TCP port number 25.
+The primary purpose of this protocol is to make sure that email messages are communicated over the network securely. This port usually comes into being during the Application layer.
+
+####  DNS - 53
+DNS is referred to as 'Domain Name System'. It operates on the port 53 of TCP and UDP protocols.
+DNS makes use of relational databases to link the host names of the computers or networks to their respective IP Addresses. The port 53 waits for requests from DHCP to transfer the data over the network.
+It operates on the Application Layer of the TCP/IP Model.
+
+#### DHCP - 67, 68
+Also known as Dynamic Host Configuration Protocol. It basically runs on the UDP protocol. The basic purpose of DHCP is to assign IP Address related information to the clients on a network automatically.
+This information may comprise of subnet mask, IP Address etc. Many of the devices are automatically configured to look for IP Addresses using DHCP when they connect on a network.
+It makes it quite reliable to assign all the devices on a network with automatically produced IP Addresses.
+It generally operates on the Application layer of the TCP/IP Model. 
+
+UDP Port 67 performs the task of accepting address requests from DHCP and sending the data to the server.
+On the other hand, UDP Port 68 performs the task of responding to all the requests of DHCP and forwarding data to the client.
+
+#### HTTP - 80
+Port 80 is associated with HTTP, Hypertext Transfer Protocol. It comes under the category of a TCP protocol. It is one of the most famous and widely used ports in the world.
+The main purpose of port 80 is to allow the browser to connect to the web pages on the internet. his port is generally used during the application layer of the TCP/IP Model.
+
+#### HTTPS - 443
+HTTPS - 443 is also associated with the TCP protocol. HTTPS port 443 also lets you connect to the internet by establishing a connection between the webpages and the browser.
+This lets you connect to the World Wide Web. However, this port has an added feature of security to it, which HTTP port 80 does not have.
+This port is intended for establishing secure connections to make sure that the data is transmitted over a secure network.
+This feature of security is introduced by the use of SSL, which can also be referred to as Secure Socket Layer.
+
+#### MySQL - 3306
+Port 3306 is the default port for the classic MySQL protocol ( port ), which is used by the mysql client, MySQL Connectors, and utilities such as mysqldump and mysqlpump.
+
+

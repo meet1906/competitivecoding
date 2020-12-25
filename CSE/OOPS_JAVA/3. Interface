@@ -1,0 +1,71 @@
+                                            ########### Interfaces in Java ########### 
+
+Like a class, an interface can have methods and variables, but the methods declared in an interface are by default abstract (only method signature, no body).  
+
+Interfaces specify what a class must do and not how. It is the blueprint of the class.
+An Interface is about capabilities like a Player may be an interface and any class implementing Player must be able to (or must implement) move().
+So it specifies a set of methods that the class has to implement.
+
+If a class implements an interface and does not provide method bodies for all functions specified in the interface, then the class must be declared abstract.
+A Java library example is, Comparator Interface. If a class implements this interface, then it can be used to sort a collection.
+Syntax :
+
+interface <interface_name> {
+    
+    // declare constant fields
+    // declare methods that abstract by default.
+}
+
+To declare an interface, use interface keyword. It is used to provide total abstraction. 
+That means all the methods in an interface are declared with an empty body and are public and all fields are public, static and final by default.
+A class that implements an interface must implement all the methods declared in the interface. To implement interface use implements keyword.
+
+$$$$$ Why do we use interface ?
+
+A. It is used to achieve total abstraction.
+B. Since java does not support multiple inheritance in case of class, but by using interface it can achieve multiple inheritance .
+C. It is also used to achieve loose coupling.
+
+    Loose coupling : In simple words, loose coupling means they are mostly independent.
+    If the only knowledge that class A has about class B, is what class B has exposed through its interface, then class A and class B are said to be loosely coupled.
+    In order to over come from the problems of tight coupling between objects, 
+    spring framework uses dependency injection mechanism with the help of POJO/POJI model and through dependency injection its possible to achieve loose coupling.
+
+
+D. Interfaces are used to implement abstraction. So the question arises why use interfaces when we have abstract classes?
+
+
+$$$$$$$$ New features added in interfaces in JDK 8
+
+Prior to JDK 8, interface could not define implementation. We can now add default implementation for interface methods. 
+We can now define static methods in interfaces which can be called independently without an object. Note: these methods are not inherited.
+
+##### Important points about interface or summary of article:
+
+    We can’t create instance(interface can’t be instantiated) of interface but we can make reference of it that refers to the Object of its implementing class.
+    A class can implement more than one interface.
+    An interface can extends another interface or interfaces (more than one interface) .
+    A class that implements interface must implements all the methods in interface.
+    All the methods are public and abstract. And all the fields are public, static, and final.
+    It is used to achieve multiple inheritance.
+    It is used to achieve loose coupling.
+    New features added in interfaces in JDK 9
+    
+#### From Java 9 onwards, interfaces can contain following also
+
+    Static methods
+    Private methods
+    Private Static methods
+
+
+                ########  Difference Between Interface and Abstract Class ###########
+
+A. Main difference is methods of a Java interface are implicitly abstract and cannot have implementations. A Java abstract class can have instance methods that implements a default behavior.
+B. Variables declared in a Java interface is by default final. An  abstract class may contain non-final variables.
+C. Members of a Java interface are public by default. A Java abstract class can have the usual flavors of class members like private, protected, etc..
+D. Java interface should be implemented using keyword “implements”; A Java abstract class should be extended using keyword “extends”.
+E. An interface can extend another Java interface only, an abstract class can extend another Java class and implement multiple Java interfaces.
+F. A Java class can implement multiple interfaces but it can extend only one abstract class.
+G. Interface is absolutely abstract and cannot be instantiated; A Java abstract class also cannot be instantiated, but can be invoked if a main() exists.
+H. In comparison with java abstract classes, java interfaces are slow as it requires extra indirection.
+

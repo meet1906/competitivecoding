@@ -1,0 +1,57 @@
+                                    ############ INTRODUCTION ##############
+
+1. Database: Database is a collection of inter-related data which helps in efficient retrieval, insertion and deletion of data from database 
+             and organizes the data in the form of tables, views, schemas, reports etc.
+
+2. Database Management System(DBMS) : The software which is used to manage database is called Database Management System (DBMS).
+                                      DBMS is a software tool to organize(create, retrieve, update, and delete) data in a database.
+
+                                    ########## ADVANTAGE OF DBMS #############
+
+A. Data independence: Application programs should be as free or independent as possible from details of data representation and storage.
+                      DBMS can supply an abstract view of the data for insulating application code from such facts.
+
+B. Efficient data access: DBMS utilizes a mixture of sophisticated concepts and techniques for storing and retrieving data competently.
+                          This feature becomes important in cases where the data is stored on external storage devices.
+
+C. Data integrity and security: If data is accessed through the DBMS, the DBMS can enforce integrity constraints on the data.
+
+D. Data administration: When several users share the data, integrating the administration of data can offer significant improvements.
+                        Responsible for organizing the data representation to reduce redundancy and make the data to retrieve efficiently.
+
+E. Concurrent access to data: Data can be accessed concurrently by different users at same time in DBMS.
+
+F. Backup and Recovery mechanism: DBMS backup and recovery mechanism helps to avoid data loss and data inconsistency in case of catastrophic failures.
+
+G. Multiple data views: Different views of same data can be created for different users. For Example, faculty salary information can be hidden from student view of data but shown in admin view.
+
+
+                            ############ DBMS Architecture 2-Level, 3-Level  ###################
+                            
+* Two tier architecture:
+
+Two tier architecture is similar to a basic client-server model. The application at the client end directly communicates with the database at the server side.
+API’s like ODBC,JDBC are used for this interaction. The server side is responsible for providing query processing and transaction management functionalities.
+
+On the client side, the user interfaces and application programs are run. The application on the client side establishes a connection with the server side in order to communicate with the DBMS.
+An advantage of this type is that maintenance and understanding is easier, compatible with existing systems. However this model gives poor performance when there are a large number of users.
+
+
+
+
+* Three Tier architecture:
+
+In this type, there is another layer between the client and the server. The client does not directly communicate with the server.
+Instead, it interacts with an application server which further communicates with the database system and then the query processing and transaction management takes place.
+This intermediate layer acts as a medium for exchange of partially processed data between server and client. This type of architecture is used in case of large web applications.
+
+## Advantages:
+
+*Enhanced scalability due to distributed deployment of application servers. Now,individual connections need not be made between client and server.
+*Data Integrity is maintained. Since there is a middle layer between client and server, data corruption can be avoided/removed.
+*Security is improved. This type of model prevents direct interaction of the client with the server thereby reducing access to unauthorized data.
+
+## Disadvantages:
+
+* Increased complexity of implementation and communication. It becomes difficult for this sort of interaction to take place due to presence of middle layers.
+
